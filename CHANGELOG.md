@@ -16,6 +16,9 @@ Notable changes to `cst-studio-suite-mcp`. The format follows
   `mcp>=1.10,<2`, and CI installs the package itself (`pip install -e .`) so it
   validates the declared constraint instead of a copy of it. Any environment that
   already installed mcp 2.x needs `pip install "mcp>=1.10,<2"`.
+- CI no longer runs `check_install.py`. It is the installation acceptance check for a
+  machine that has CST; a runner has none, so its correct outcome is `NOT READY` and
+  failing the build on that was a false signal. The offline gates cover the registry.
 - **Overwriting an existing project no longer needs a confirmation.** `cst_save_project_tool`
   with `overwrite: true` used to delete only the `.cst` file and then call CST's
   `save(path)`. A CST project is the `.cst` file *plus* a companion directory holding

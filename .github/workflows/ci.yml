@@ -61,8 +61,11 @@ jobs:
           python tests/test_port_info_verdict.py
           python tests/test_save_overwrite.py
 
-      - name: Installation check (offline half)
-        run: python check_install.py --quick
+      # check_install.py is deliberately NOT run here. It is the installation
+      # acceptance check for a machine that has CST; a runner has none, so its
+      # correct outcome is NOT READY (no .env, no CST_INSTALL_ROOT) and failing
+      # the build on that would be a false signal. The docs/dev/verification.md
+      # matrix marks it as needing CST for the same reason.
 
       - name: Manifest is up to date
         run: |
