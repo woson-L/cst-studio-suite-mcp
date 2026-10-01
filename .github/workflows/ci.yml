@@ -30,7 +30,9 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install "mcp>=1.10" "pydantic>=2.0"
+          # Install the package itself, so CI validates the dependency
+          # constraints declared in pyproject.toml rather than a copy of them.
+          python -m pip install -e .
 
       - name: Import check
         run: python -c "import mcp_server; print('tools:', len(mcp_server.registry))"

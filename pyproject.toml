@@ -23,7 +23,9 @@ classifiers = [
     "Topic :: Scientific/Engineering",
 ]
 dependencies = [
-    "mcp>=1.10",
+    # mcp 2.x renamed FastMCP to MCPServer and changed other APIs; this server
+    # is written against the 1.x line. Widening this needs a migration first.
+    "mcp>=1.10,<2",
     "pydantic>=2.0",
 ]
 

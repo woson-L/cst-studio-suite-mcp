@@ -8,6 +8,14 @@ Notable changes to `cst-studio-suite-mcp`. The format follows
 
 ### Fixed
 
+- **`pip install` produced a server that could not start.** `pyproject.toml` declared
+  `mcp>=1.10` with no upper bound, so a fresh install resolved **mcp 2.2.0**, where
+  `FastMCP` was renamed to `MCPServer`. `mcp_server.py` imports
+  `mcp.server.fastmcp` and therefore died at import with
+  `ModuleNotFoundError: No module named 'mcp.server.fastmcp'`. The constraint is now
+  `mcp>=1.10,<2`, and CI installs the package itself (`pip install -e .`) so it
+  validates the declared constraint instead of a copy of it. Any environment that
+  already installed mcp 2.x needs `pip install "mcp>=1.10,<2"`.
 - **Overwriting an existing project no longer needs a confirmation.** `cst_save_project_tool`
   with `overwrite: true` used to delete only the `.cst` file and then call CST's
   `save(path)`. A CST project is the `.cst` file *plus* a companion directory holding

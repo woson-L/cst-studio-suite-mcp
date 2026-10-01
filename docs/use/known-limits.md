@@ -5,6 +5,10 @@
 
 * Parameter values are passed as CST expressions; a value containing a comma is
   rejected as a likely list.
+* **`mcp` must be 1.x.** The server is written against `mcp.server.fastmcp`; mcp 2.x
+  renamed `FastMCP` to `MCPServer` and changed other APIs, so an environment with mcp 2
+  installed cannot even import `mcp_server`. The package declares `mcp>=1.10,<2`. If you
+  installed mcp 2.x by hand, run `pip install "mcp>=1.10,<2"`.
 * Overwriting a project path closes any project still open on it: a CST project keeps
   its `Model/` and `Result/` files locked while it is open, and the save otherwise
   fails with a bare `Failed to save project`. Asking for that path to be replaced

@@ -195,7 +195,7 @@ def check_python() -> None:
         record(OK, "package 'mcp'", "importable")
     except ImportError:
         record(FAIL, "package 'mcp'",
-               "missing - run: python -m pip install \"mcp>=1.10\"")
+               "missing - run: python -m pip install \"mcp>=1.10,<2\"")
     try:
         import pydantic  # noqa: F401
         record(OK, "package 'pydantic'", "importable")

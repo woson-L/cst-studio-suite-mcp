@@ -117,7 +117,7 @@ mcp OK C:\...\site-packages\mcp\__init__.py
 ```
 
 - If all three options fail: if the target machine **has network access**, run
-  `& "<PYTHON>" -m pip install "mcp>=1.10" pydantic`;
+  `& "<PYTHON>" -m pip install "mcp>=1.10,<2" pydantic`;
   if it is **completely offline**, the only options are to find an existing venv elsewhere, or to
   copy the whole `.venv\Lib\site-packages\mcp` directory over from this machine.
   **Do not** continue with the following steps on an interpreter that has no `mcp`.
