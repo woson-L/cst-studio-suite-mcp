@@ -1,0 +1,4031 @@
+{
+  "name": "cst-studio-suite-mcp",
+  "version": "2.0.0",
+  "target_software": "CST Studio Suite 2026 (verified on 2026.2)",
+  "transport": "stdio",
+  "tool_count": 84,
+  "categories": [
+    {
+      "name": "export",
+      "tool_count": 3,
+      "tools": [
+        "cst_export_ascii_tool",
+        "cst_export_touchstone_tool",
+        "cst_write_summary_json_tool"
+      ]
+    },
+    {
+      "name": "geometry",
+      "tool_count": 14,
+      "tools": [
+        "cst_boolean_tool",
+        "cst_create_bondwire_tool",
+        "cst_create_brick_tool",
+        "cst_create_cone_tool",
+        "cst_create_cylinder_tool",
+        "cst_create_elliptical_cylinder_tool",
+        "cst_create_sphere_tool",
+        "cst_create_torus_tool",
+        "cst_delete_solid_tool",
+        "cst_extrude_curve_tool",
+        "cst_move_solid_to_component_tool",
+        "cst_new_component_tool",
+        "cst_rename_solid_tool",
+        "cst_transform_tool"
+      ]
+    },
+    {
+      "name": "material",
+      "tool_count": 3,
+      "tools": [
+        "cst_assign_material_tool",
+        "cst_create_material_tool",
+        "cst_load_material_from_library_tool"
+      ]
+    },
+    {
+      "name": "mesh",
+      "tool_count": 2,
+      "tools": [
+        "cst_generate_mesh_tool",
+        "cst_set_mesh_tool"
+      ]
+    },
+    {
+      "name": "meta",
+      "tool_count": 3,
+      "tools": [
+        "cst_call_tool",
+        "cst_list_mcp_tools_tool",
+        "cst_tool_manifest_tool"
+      ]
+    },
+    {
+      "name": "monitor",
+      "tool_count": 2,
+      "tools": [
+        "cst_add_monitor_tool",
+        "cst_list_monitors_tool"
+      ]
+    },
+    {
+      "name": "parameters",
+      "tool_count": 4,
+      "tools": [
+        "cst_define_parameters_tool",
+        "cst_delete_parameter_tool",
+        "cst_get_parameters_tool",
+        "cst_set_parameters_tool"
+      ]
+    },
+    {
+      "name": "port",
+      "tool_count": 3,
+      "tools": [
+        "cst_add_discrete_port_tool",
+        "cst_add_waveguide_port_tool",
+        "cst_list_ports_tool"
+      ]
+    },
+    {
+      "name": "results",
+      "tool_count": 2,
+      "tools": [
+        "cst_list_results_tool",
+        "cst_read_result_tool"
+      ]
+    },
+    {
+      "name": "runtime",
+      "tool_count": 16,
+      "tools": [
+        "cst_runtime_args_template_tool",
+        "cst_runtime_describe_tool",
+        "cst_runtime_detect_tool",
+        "cst_runtime_invoke_tool",
+        "cst_runtime_list_pipelines_tool",
+        "cst_runtime_list_tools_tool",
+        "cst_runtime_usage_guide_tool",
+        "cst_toolbox_args_template_tool",
+        "cst_toolbox_describe_tool",
+        "cst_toolbox_detect_tool",
+        "cst_toolbox_generate_typed_wrappers_tool",
+        "cst_toolbox_invoke_tool",
+        "cst_toolbox_list_pipelines_tool",
+        "cst_toolbox_list_tools_tool",
+        "cst_toolbox_schema_catalog_tool",
+        "cst_toolbox_usage_guide_tool"
+      ]
+    },
+    {
+      "name": "session",
+      "tool_count": 14,
+      "tools": [
+        "cst_add_to_history_tool",
+        "cst_close_project_tool",
+        "cst_connect_tool",
+        "cst_detect_tool",
+        "cst_health_check_tool",
+        "cst_list_design_environments_tool",
+        "cst_messages_tool",
+        "cst_new_project_tool",
+        "cst_open_project_tool",
+        "cst_project_info_tool",
+        "cst_quit_tool",
+        "cst_run_vba_tool",
+        "cst_save_project_tool",
+        "cst_workspace_tool"
+      ]
+    },
+    {
+      "name": "solver",
+      "tool_count": 11,
+      "tools": [
+        "cst_configure_eigenmode_solver_tool",
+        "cst_configure_fd_solver_tool",
+        "cst_configure_td_solver_tool",
+        "cst_frequency_overview_tool",
+        "cst_get_solver_tool",
+        "cst_run_solver_tool",
+        "cst_set_background_tool",
+        "cst_set_boundary_tool",
+        "cst_set_frequency_range_tool",
+        "cst_set_solver_tool",
+        "cst_set_symmetry_tool"
+      ]
+    },
+    {
+      "name": "sweep",
+      "tool_count": 2,
+      "tools": [
+        "cst_sweep_preview_tool",
+        "cst_sweep_run_tool"
+      ]
+    },
+    {
+      "name": "verify",
+      "tool_count": 5,
+      "tools": [
+        "cst_energy_summary_tool",
+        "cst_model_audit_tool",
+        "cst_read_port_info_tool",
+        "cst_read_reference_impedance_tool",
+        "cst_read_s11_tool"
+      ]
+    }
+  ],
+  "tools": [
+    {
+      "name": "cst_add_discrete_port_tool",
+      "category": "port",
+      "summary": "Add a discrete S-parameter port with an explicit reference impedance (safe for microstrip feeds).",
+      "params": {
+        "port_number": "int",
+        "point1": "list",
+        "point2": "list",
+        "impedance": "float",
+        "label": "str | null",
+        "monitor": "bool"
+      },
+      "required": [
+        "port_number",
+        "point1",
+        "point2"
+      ],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "port_number": {
+            "type": "integer"
+          },
+          "point1": {
+            "type": "array"
+          },
+          "point2": {
+            "type": "array"
+          },
+          "impedance": {
+            "type": "number"
+          },
+          "label": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "monitor": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "port_number",
+          "point1",
+          "point2"
+        ]
+      },
+      "returns": "",
+      "examples": [
+        {
+          "port_number": 1,
+          "point1": [
+            -30,
+            0,
+            -1.6
+          ],
+          "point2": [
+            -30,
+            0,
+            0.035
+          ],
+          "impedance": 50.0
+        }
+      ],
+      "notes": [
+        "point1/point2 are the two ends of the port, normally across the substrate height between the ground plane and the conductor.",
+        "The S-parameters are then referenced to exactly `impedance` - check it with cst_read_reference_impedance_tool."
+      ],
+      "replaces_vba": "DiscretePort object (.Type/.Impedance/.SetP1/.SetP2/.Create)",
+      "extension": false
+    },
+    {
+      "name": "cst_add_monitor_tool",
+      "category": "monitor",
+      "summary": "Add a field monitor: far field, E/H field, power flow, current or loss.",
+      "params": {
+        "name": "str",
+        "field_type": "str",
+        "frequency": "float | null",
+        "domain": "str",
+        "plane_normal": "str | null",
+        "plane_position": "float | null"
+      },
+      "required": [
+        "name",
+        "field_type"
+      ],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "field_type": {
+            "type": "string"
+          },
+          "frequency": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "domain": {
+            "type": "string"
+          },
+          "plane_normal": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "plane_position": {
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "field_type"
+        ]
+      },
+      "returns": "",
+      "examples": [
+        {
+          "name": "farfield_2450",
+          "field_type": "Farfield",
+          "frequency": 2.45
+        },
+        {
+          "name": "efield_24",
+          "field_type": "Efield",
+          "frequency": 2.4,
+          "plane_normal": "z",
+          "plane_position": 0.0
+        }
+      ],
+      "notes": [
+        "field_type aliases: farfield/far, efield/e, hfield/h, powerflow, current, powerloss, eenergy/henergy.",
+        "Far field monitors need the Frequency Domain or Time Domain solver and a solved model.",
+        "A monitor frequency is NOT the solver range: set the range with cst_set_frequency_range_tool."
+      ],
+      "replaces_vba": "Monitor object (FieldType / Domain / Frequency / Create)",
+      "extension": false
+    },
+    {
+      "name": "cst_add_to_history_tool",
+      "category": "session",
+      "summary": "Append one named block to the model history tree (geometry, mesh, solver, ...).",
+      "params": {
+        "title": "str",
+        "vba_code": "str"
+      },
+      "required": [
+        "title",
+        "vba_code"
+      ],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "vba_code": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "title",
+          "vba_code"
+        ]
+      },
+      "returns": "",
+      "examples": [
+        {
+          "title": "create substrate",
+          "vba_code": "With Brick\n .Reset\n .Name \"substrate\"\n .Component \"board\"\n .Material \"FR-4 (lossy)\"\n .Xrange \"-20\",\"20\"\n .Yrange \"-15\",\"15\"\n .Zrange \"-1.6\",\"0\"\n .Create\nEnd With"
+        }
+      ],
+      "notes": [
+        "Never put StoreParameter/StoreParameters/Rebuild in this block: CST refuses it and can block the session.",
+        "The model is rebuilt automatically after the block, so Rebuild is never needed here."
+      ],
+      "replaces_vba": "Model3D.AddToHistory",
+      "extension": false
+    },
+    {
+      "name": "cst_add_waveguide_port_tool",
+      "category": "port",
+      "summary": "Add a waveguide port on a plane of the calculation domain.",
+      "params": {
+        "port_number": "int",
+        "orientation": "str",
+        "xrange": "list",
+        "yrange": "list",
+        "zrange": "list",
+        "n_modes": "int",
+        "label": "str | null",
+        "reference_plane": "float",
+        "on_boundary": "bool"
+      },
+      "required": [
+        "port_number",
+        "orientation",
+        "xrange",
+        "yrange",
+        "zrange"
+      ],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "port_number": {
+            "type": "integer"
+          },
+          "orientation": {
+            "type": "string"
+          },
+          "xrange": {
+            "type": "array"
+          },
+          "yrange": {
+            "type": "array"
+          },
+          "zrange": {
+            "type": "array"
+          },
+          "n_modes": {
+            "type": "integer"
+          },
+          "label": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "reference_plane": {
+            "type": "number"
+          },
+          "on_boundary": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "port_number",
+          "orientation",
+          "xrange",
+          "yrange",
+          "zrange"
+        ]
+      },
+      "returns": "",
+      "examples": [
+        {
+          "port_number": 1,
+          "orientation": "zmin",
+          "xrange": [
+            -10,
+            10
+          ],
+          "yrange": [
+            -5,
+            5
+          ],
+          "zrange": [
+            0,
+            0
+          ],
+          "n_modes": 1
+        }
+      ],
+      "notes": [
+        "orientation is the feeding direction: 'xmin' means the port sits at the lower x boundary and feeds in +x.",
+        "After solving, check cst_read_port_info_tool: if the cutoff frequency is above the band, the mode is evanescent and S-parameters are meaningless."
+      ],
+      "replaces_vba": "Port object (.Orientation/.Coordinates/.Xrange/.Create)",
+      "extension": false
+    },
+    {
+      "name": "cst_assign_material_tool",
+      "category": "material",
+      "summary": "Assign an existing material to a solid.",
+      "params": {
+        "solid": "str",
+        "material": "str"
+      },
+      "required": [
+        "solid",
+        "material"
+      ],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "solid": {
+            "type": "string"
+          },
+          "material": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "solid",
+          "material"
+        ]
+      },
+      "returns": "",
+      "examples": [
+        {
+          "solid": "board:substrate",
+          "material": "FR4_substrate"
+        }
+      ],
+      "notes": [
+        "`solid` must be a full CST name 'component:solid'."
+      ],
+      "replaces_vba": "Solid.ChangeMaterial",
+      "extension": false
+    },
+    {
+      "name": "cst_boolean_tool",
+      "category": "geometry",
+      "summary": "Combine two solids: add (unite), subtract, intersect or insert.",
+      "params": {
+        "operation": "str",
+        "target": "str",
+        "tool": "str",
+        "title": "str | null"
+      },
+      "required": [
+        "operation",
+        "target",
+        "tool"
+      ],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "operation": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string"
+          },
+          "tool": {
+            "type": "string"
+          },
+          "title": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "operation",
+          "target",
+          "tool"
+        ]
+      },
+      "returns": "",
+      "examples": [
+        {
+          "operation": "subtract",
+          "target": "antenna:patch",
+          "tool": "antenna:slot"
+        }
+      ],
+      "notes": [
+        "Both names must be full CST names 'component:solid'.",
+        "add/subtract/intersect delete the second solid; insert keeps it. The result stays in `target`."
+      ],
+      "replaces_vba": "Solid.Add / Subtract / Intersect / Insert",
+      "extension": false
+    },
+    {
+      "name": "cst_call_tool",
+      "category": "meta",
+      "summary": "Call any registered CST MCP tool by name through the registry (dynamic dispatch).",
+      "params": {
+        "tool_name": "str",
+        "args": "dict"
+      },
+      "required": [
+        "tool_name"
+      ],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "tool_name": {
+            "type": "string"
+          },
+          "args": {
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "tool_name"
+        ]
+      },
+      "returns": "the wrapped tool's result",
+      "examples": [],
+      "notes": [
+        "Exists so a new tool can be added without reconnecting the MCP client.",
+        "Prefer calling the tool directly when it is already exposed as an MCP tool."
+      ],
+      "replaces_vba": "",
+      "extension": false
+    },
+    {
+      "name": "cst_close_project_tool",
+      "category": "session",
+      "summary": "Close the active project without quitting CST.",
+      "params": {},
+      "required": [],
+      "json_schema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "returns": "{ok, closed, error?}",
+      "examples": [],
+      "notes": [
+        "Only the ACTIVE project is closed. Every other open project keeps its own ~700 MB modeler worker alive; use cst_quit_tool to release them all.",
+        "A failed close now reports ok=False with the CST message instead of silently claiming success."
+      ],
+      "replaces_vba": "",
+      "extension": false
+    },
+    {
+      "name": "cst_configure_eigenmode_solver_tool",
+      "category": "solver",
+      "summary": "Configure the eigenmode solver (number of modes, target frequency).",
+      "params": {
+        "n_modes": "int",
+        "frequency": "float | null",
+        "mesh_type": "str",
+        "method": "str | null",
+        "accuracy": "float | null"
+      },
+      "required": [
+        "n_modes"
+      ],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "n_modes": {
+            "type": "integer"
+          },
+          "frequency": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "mesh_type": {
+            "type": "string"
+          },
+          "method": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "accuracy": {
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "n_modes"
+        ]
+      },
+      "returns": "",
+      "examples": [
+        {
+          "n_modes": 3,
+          "frequency": 2.4
+        },
+        {
+          "n_modes": 5,
+          "mesh_type": "Tetrahedral Mesh"
+        }
+      ],
+      "notes": [
+        "Select 'HF Eigenmode' first.",
+        "mesh_type: Hexahedral Mesh | Tetrahedral Mesh.",
+        "method, tetrahedral mesh: Automatic | Classical (Lossless) | General (Lossy).",
+        "method, hexahedral mesh: Automatic | AKS. Pairing AKS with the tetrahedral mesh is invalid - the mesh argument follows the method, not the other way round.",
+        "'JDM' and 'JDM (low memory)' are documented CST values for the hexahedral mesh but are refused by CST 2026.2 with 'Invalid Eigenmode solver type', so they are not accepted here; re-probe before enabling them on a newer build.",
+        "frequency is the solver's target frequency; the band itself is the global solver frequency range.",
+        "The eigenmode band is still the global Solver.FrequencyRange; this sets the mode count and target."
+      ],
+      "replaces_vba": "EigenmodeSolver.SetNumberOfModes / SetFrequencyTarget / SetMeshType / SetMethodType",
+      "extension": false
+    },
+    {
+      "name": "cst_configure_fd_solver_tool",
+      "category": "solver",
+      "summary": "Configure the frequency domain solver: mesh method, sweep type, element order, accuracy, adaption.",
+      "params": {
+        "mesh": "str",
+        "sweep": "str",
+        "order": "str",
+        "accuracy": "str",
+        "mesh_adaption": "bool",
+        "double_precision": "bool",
+        "max_cpus": "int | null"
+      },
+      "required": [],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "mesh": {
+            "type": "string"
+          },
+          "sweep": {
+            "type": "string"
+          },
+          "order": {
+            "type": "string"
+          },
+          "accuracy": {
+            "type": "string"
+          },
+          "mesh_adaption": {
+            "type": "boolean"
+          },
+          "double_precision": {
+            "type": "boolean"
+          },
+          "max_cpus": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "returns": "{ok, applied, not_applied?}",
+      "examples": [
+        {
+          "mesh": "Tetrahedral",
+          "sweep": "General Purpose",
+          "order": "Second",
+          "accuracy": "1e-4",
+          "mesh_adaption": false
+        },
+        {
+          "mesh": "Hexahedral",
+          "sweep": "General Purpose",
+          "accuracy": "1e-4"
+        }
+      ],
+      "notes": [
+        "mesh: Hexahedral | Tetrahedral | Surface",
+        "sweep: General Purpose | Fast reduced order model | Discrete samples only",
+        "order (tetrahedral only): First | Second | Third, or Mixed for variable order (emitted as MixedOrderTet). There is no OrderTet value 'Mixed'.",
+        "accuracy, tetrahedral: tetrahedral relative residual, e.g. 1e-4.",
+        "accuracy, hexahedral/Surface: relative residual norm 1e-3..1e-12, or the aliases Low/Medium/High/Very high (mapped to 1e-3/1e-4/1e-5/1e-6). Out-of-range values are rejected instead of being dropped silently.",
+        "mesh_adaption is tetrahedral only; requesting it for another mesh raises.",
+        "Select the frequency domain solver first with cst_set_solver_tool.",
+        "Parameters that cannot apply to the chosen mesh are listed in not_applied."
+      ],
+      "replaces_vba": "FDSolver.SetMethod / OrderTet / MixedOrderTet / AccuracyTet / AccuracyHex / MeshAdaptionTet",
+      "extension": false
+    },
+    {
+      "name": "cst_configure_td_solver_tool",
+      "category": "solver",
+      "summary": "Configure the time domain (transient) solver.",
+      "params": {
+        "accuracy": "str",
+        "mesh_type": "str",
+        "stimulation_port": "str",
+        "norming_impedance": "float | null",
+        "double_precision": "bool",
+        "pulse_widths": "int | null"
+      },
+      "required": [],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "accuracy": {
+            "type": "string"
+          },
+          "mesh_type": {
+            "type": "string"
+          },
+          "stimulation_port": {
+            "type": "string"
+          },
+          "norming_impedance": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "double_precision": {
+            "type": "boolean"
+          },
+          "pulse_widths": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "returns": "",
+      "examples": [
+        {
+          "accuracy": "-30",
+          "mesh_type": "Hexahedral"
+        },
+        {
+          "accuracy": "-40",
+          "stimulation_port": "All"
+        }
+      ],
+      "notes": [
+        "accuracy is the steady-state limit in dB in the range [-80, 0], for example '-30'.",
+        "mesh_type: Hexahedral | Tetrahedral.",
+        "This block has no Reset in CST: settings are applied directly."
+      ],
+      "replaces_vba": "Solver.SteadyStateLimit / Solver.MeshType / Solver.UseDoublePrecision",
+      "extension": false
+    },
+    {
+      "name": "cst_connect_tool",
+      "category": "session",
+      "summary": "Connect to a running CST Design Environment, optionally launching one.",
+      "params": {
+        "launch_if_needed": "bool",
+        "pid": "int | null"
+      },
+      "required": [],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "launch_if_needed": {
+            "type": "boolean"
+          },
+          "pid": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "returns": "session info after connecting",
+      "examples": [
+        {
+          "launch_if_needed": true
+        }
+      ],
+      "notes": [],
+      "replaces_vba": "",
+      "extension": false
+    },
+    {
+      "name": "cst_create_bondwire_tool",
+      "category": "geometry",
+      "summary": "Create a bond wire between two points.",
+      "params": {
+        "name": "str",
+        "point1": "list",
+        "point2": "list",
+        "height": "float",
+        "radius": "float",
+        "material": "str | null",
+        "wire_type": "str",
+        "title": "str | null"
+      },
+      "required": [
+        "name",
+        "point1",
+        "point2",
+        "height",
+        "radius"
+      ],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "point1": {
+            "type": "array"
+          },
+          "point2": {
+            "type": "array"
+          },
+          "height": {
+            "type": "number"
+          },
+          "radius": {
+            "type": "number"
+          },
+          "material": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "wire_type": {
+            "type": "string"
+          },
+          "title": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "point1",
+          "point2",
+          "height",
+          "radius"
+        ]
+      },
+      "returns": "",
+      "examples": [
+        {
+          "name": "bw1",
+          "point1": [
+            0,
+            0,
+            0
+          ],
+          "point2": [
+            1,
+            1,
+            0
+          ],
+          "height": 1,
+          "radius": 0.01
+        }
+      ],
+      "notes": [
+        "wire_type: Spline | JEDEC4 | JEDEC5. CST terminates this with .Add.",
+        "Wires live in their own tree section: CST's Wire object has no Component.",
+        "Non-solid wires accept only PEC or Lossy Metal, and Lossy Metal only with the IE solver."
+      ],
+      "replaces_vba": "Wire object (.Point1/.Height/.Radius/.Add)",
+      "extension": false
+    },
+    {
+      "name": "cst_create_brick_tool",
+      "category": "geometry",
+      "summary": "Create a rectangular brick (box) as a history block.",
+      "params": {
+        "component": "str",
+        "name": "str",
+        "xrange": "list",
+        "yrange": "list",
+        "zrange": "list",
+        "material": "str | null",
+        "title": "str | null"
+      },
+      "required": [
+        "component",
+        "name",
+        "xrange",
+        "yrange",
+        "zrange"
+      ],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "component": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "xrange": {
+            "type": "array"
+          },
+          "yrange": {
+            "type": "array"
+          },
+          "zrange": {
+            "type": "array"
+          },
+          "material": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "title": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "component",
+          "name",
+          "xrange",
+          "yrange",
+          "zrange"
+        ]
+      },
+      "returns": "{ok, title, solid}",
+      "examples": [
+        {
+          "component": "board",
+          "name": "substrate",
+          "xrange": [
+            "-Lg/2",
+            "Lg/2"
+          ],
+          "yrange": [
+            "-Wg/2",
+            "Wg/2"
+          ],
+          "zrange": [
+            "-h",
+            "0"
+          ],
+          "material": "FR-4 (lossy)"
+        }
+      ],
+      "notes": [
+        "Ranges accept numbers or CST expressions such as \"-Lg/2\"."
+      ],
+      "replaces_vba": "Brick object (.Xrange/.Yrange/.Zrange/.Create)",
+      "extension": false
+    },
+    {
+      "name": "cst_create_cone_tool",
+      "category": "geometry",
+      "summary": "Create a cone or truncated cone.",
+      "params": {
+        "component": "str",
+        "name": "str",
+        "axis": "str",
+        "bottom_radius": "float",
+        "top_radius": "float",
+        "ranges": "list",
+        "center": "list | null",
+        "material": "str | null",
+        "segments": "int | null",
+        "title": "str | null"
+      },
+      "required": [
+        "component",
+        "name",
+        "axis",
+        "bottom_radius",
+        "top_radius",
+        "ranges"
+      ],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "component": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "axis": {
+            "type": "string"
+          },
+          "bottom_radius": {
+            "type": "number"
+          },
+          "top_radius": {
+            "type": "number"
+          },
+          "ranges": {
+            "type": "array"
+          },
+          "center": {
+            "type": [
+              "array",
+              "null"
+            ]
+          },
+          "material": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "segments": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "title": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "component",
+          "name",
+          "axis",
+          "bottom_radius",
+          "top_radius",
+          "ranges"
+        ]
+      },
+      "returns": "",
+      "examples": [
+        {
+          "component": "parts",
+          "name": "horn",
+          "axis": "z",
+          "bottom_radius": 1,
+          "top_radius": 4,
+          "ranges": [
+            "0",
+            "10"
+          ]
+        }
+      ],
+      "notes": [
+        "CST rejects a cone whose top and bottom radii are both zero."
+      ],
+      "replaces_vba": "Cone object",
+      "extension": false
+    },
+    {
+      "name": "cst_create_cylinder_tool",
+      "category": "geometry",
+      "summary": "Create a cylinder along x, y or z.",
+      "params": {
+        "component": "str",
+        "name": "str",
+        "axis": "str",
+        "radius": "float",
+        "ranges": "list",
+        "center": "list | null",
+        "material": "str | null",
+        "segments": "int | null",
+        "title": "str | null"
+      },
+      "required": [
+        "component",
+        "name",
+        "axis",
+        "radius",
+        "ranges"
+      ],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "component": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "axis": {
+            "type": "string"
+          },
+          "radius": {
+            "type": "number"
+          },
+          "ranges": {
+            "type": "array"
+          },
+          "center": {
+            "type": [
+              "array",
+              "null"
+            ]
+          },
+          "material": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "segments": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "title": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "component",
+          "name",
+          "axis",
+          "radius",
+          "ranges"
+        ]
+      },
+      "returns": "",
+      "examples": [
+        {
+          "component": "parts",
+          "name": "via",
+          "axis": "z",
+          "radius": 0.3,
+          "ranges": [
+            "0",
+            "1.6"
+          ],
+          "material": "Copper (annealed)"
+        }
+      ],
+      "notes": [
+        "ranges is the extent along `axis`; center is the centre of the bottom face."
+      ],
+      "replaces_vba": "Cylinder object (.OuterRadius/.Xcenter/.Zrange/.Create)",
+      "extension": false
+    },
+    {
+      "name": "cst_create_elliptical_cylinder_tool",
+      "category": "geometry",
+      "summary": "Create an elliptical cylinder.",
+      "params": {
+        "component": "str",
+        "name": "str",
+        "axis": "str",
+        "xradius": "float",
+        "yradius": "float",
+        "ranges": "list",
+        "center": "list | null",
+        "material": "str | null",
+        "segments": "int | null",
+        "title": "str | null"
+      },
+      "required": [
+        "component",
+        "name",
+        "axis",
+        "xradius",
+        "yradius",
+        "ranges"
+      ],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "component": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "axis": {
+            "type": "string"
+          },
+          "xradius": {
+            "type": "number"
+          },
+          "yradius": {
+            "type": "number"
+          },
+          "ranges": {
+            "type": "array"
+          },
+          "center": {
+            "type": [
+              "array",
+              "null"
+            ]
+          },
+          "material": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "segments": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "title": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "component",
+          "name",
+          "axis",
+          "xradius",
+          "yradius",
+          "ranges"
+        ]
+      },
+      "returns": "",
+      "examples": [],
+      "notes": [],
+      "replaces_vba": "ECylinder object",
+      "extension": false
+    },
+    {
+      "name": "cst_create_material_tool",
+      "category": "material",
+      "summary": "Define a material explicitly (permittivity, permeability, conductivity, loss tangent).",
+      "params": {
+        "name": "str",
+        "material_type": "str",
+        "epsilon": "float",
+        "mue": "float",
+        "sigma": "float",
+        "tan_d": "float",
+        "tan_d_freq": "float",
+        "rho": "float",
+        "colour": "list | null"
+      },
+      "required": [
+        "name"
+      ],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "material_type": {
+            "type": "string"
+          },
+          "epsilon": {
+            "type": "number"
+          },
+          "mue": {
+            "type": "number"
+          },
+          "sigma": {
+            "type": "number"
+          },
+          "tan_d": {
+            "type": "number"
+          },
+          "tan_d_freq": {
+            "type": "number"
+          },
+          "rho": {
+            "type": "number"
+          },
+          "colour": {
+            "type": [
+              "array",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
+      },
+      "returns": "",
+      "examples": [
+        {
+          "name": "FR4_substrate",
+          "material_type": "Normal",
+          "epsilon": 4.3,
+          "tan_d": 0.025,
+          "tan_d_freq": 2.45
+        },
+        {
+          "name": "Copper_ant",
+          "material_type": "Lossy metal",
+          "sigma": 58000000.0
+        }
+      ],
+      "notes": [
+        "Defining the material in the project makes the report reproducible;",
+        "the library value can change between CST installations."
+      ],
+      "replaces_vba": "Material object (.Name/.Type/.Epsilon/.Mu/.Sigma/.TanD/.Create)",
+      "extension": false
+    },
+    {
+      "name": "cst_create_sphere_tool",
+      "category": "geometry",
+      "summary": "Create a sphere (optionally truncated by top/bottom radius).",
+      "params": {
+        "component": "str",
+        "name": "str",
+        "center": "list",
+        "radius": "float",
+        "top_radius": "float | null",
+        "bottom_radius": "float | null",
+        "material": "str | null",
+        "segments": "int | null",
+        "title": "str | null"
+      },
+      "required": [
+        "component",
+        "name",
+        "center",
+        "radius"
+      ],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "component": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "center": {
+            "type": "array"
+          },
+          "radius": {
+            "type": "number"
+          },
+          "top_radius": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "bottom_radius": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "material": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "segments": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "title": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "component",
+          "name",
+          "center",
+          "radius"
+        ]
+      },
+      "returns": "",
+      "examples": [
+        {
+          "component": "parts",
+          "name": "ball",
+          "center": [
+            0,
+            0,
+            5
+          ],
+          "radius": 2
+        }
+      ],
+      "notes": [
+        "radius is the equatorial radius (CST CenterRadius)."
+      ],
+      "replaces_vba": "Sphere object (.CenterRadius/.Center/.Create)",
+      "extension": false
+    },
+    {
+      "name": "cst_create_torus_tool",
+      "category": "geometry",
+      "summary": "Create a torus (ring_radius = ring, tube_radius = tube).",
+      "params": {
+        "component": "str",
+        "name": "str",
+        "center": "list",
+        "ring_radius": "float",
+        "tube_radius": "float",
+        "axis": "str",
+        "material": "str | null",
+        "segments": "int | null",
+        "title": "str | null"
+      },
+      "required": [
+        "component",
+        "name",
+        "center",
+        "ring_radius",
+        "tube_radius"
+      ],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "component": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "center": {
+            "type": "array"
+          },
+          "ring_radius": {
+            "type": "number"
+          },
+          "tube_radius": {
+            "type": "number"
+          },
+          "axis": {
+            "type": "string"
+          },
+          "material": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "segments": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "title": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "component",
+          "name",
+          "center",
+          "ring_radius",
+          "tube_radius"
+        ]
+      },
+      "returns": "",
+      "examples": [
+        {
+          "component": "parts",
+          "name": "loop",
+          "center": [
+            0,
+            0,
+            0
+          ],
+          "ring_radius": 5,
+          "tube_radius": 1
+        }
+      ],
+      "notes": [
+        "CST naming is confusing here: OuterRadius is the ring, InnerRadius the tube."
+      ],
+      "replaces_vba": "Torus object (.OuterRadius/.InnerRadius)",
+      "extension": false
+    },
+    {
+      "name": "cst_define_parameters_tool",
+      "category": "parameters",
+      "summary": "Create or update several parameters at once (the usual first modelling step).",
+      "params": {
+        "parameters": "dict",
+        "save": "bool"
+      },
+      "required": [
+        "parameters"
+      ],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "parameters": {
+            "type": "object"
+          },
+          "save": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "parameters"
+        ]
+      },
+      "returns": "{changed: {name: value}, method}",
+      "examples": [
+        {
+          "parameters": {
+            "Lg": 60,
+            "Wg": 50,
+            "h": 1.6,
+            "Lpatch": 29.138
+          }
+        }
+      ],
+      "notes": [
+        "Runs through the CST parameter list as a Sub Main block - never inside a history block.",
+        "Existing parameters keep their value; explicitly different values are then set."
+      ],
+      "replaces_vba": "StoreParameter name, value (repeated)",
+      "extension": false
+    },
+    {
+      "name": "cst_delete_parameter_tool",
+      "category": "parameters",
+      "summary": "Delete a design parameter from the parameter list.",
+      "params": {
+        "name": "str"
+      },
+      "required": [
+        "name"
+      ],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
+      },
+      "returns": "",
+      "examples": [
+        {
+          "name": "temp_var"
+        }
+      ],
+      "notes": [
+        "Fails if the parameter is still used in the model."
+      ],
+      "replaces_vba": "",
+      "extension": false
+    },
+    {
+      "name": "cst_delete_solid_tool",
+      "category": "geometry",
+      "summary": "Delete a solid from the model.",
+      "params": {
+        "name": "str"
+      },
+      "required": [
+        "name"
+      ],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
+      },
+      "returns": "",
+      "examples": [],
+      "notes": [],
+      "replaces_vba": "Solid.Delete",
+      "extension": false
+    },
+    {
+      "name": "cst_detect_tool",
+      "category": "session",
+      "summary": "Detect the CST executable, automation libraries and running Design Environments.",
+      "params": {},
+      "required": [],
+      "json_schema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "returns": "CST detection report",
+      "examples": [],
+      "notes": [],
+      "replaces_vba": "",
+      "extension": false
+    },
+    {
+      "name": "cst_energy_summary_tool",
+      "category": "verify",
+      "summary": "Report the power budget and efficiencies at a frequency (radiated / accepted / losses).",
+      "params": {
+        "frequency": "float",
+        "cst_file": "str | null"
+      },
+      "required": [],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "frequency": {
+            "type": "number"
+          },
+          "cst_file": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "returns": "{efficiencies, powers}",
+      "examples": [
+        {
+          "frequency": 2.4
+        }
+      ],
+      "notes": [
+        "Total efficiency is radiated/stimulated and includes all losses (e.g. lossy substrate).",
+        "Radiation efficiency is radiated/accepted."
+      ],
+      "replaces_vba": "",
+      "extension": false
+    },
+    {
+      "name": "cst_export_ascii_tool",
+      "category": "export",
+      "summary": "Export one result tree item to an ASCII/CSV file for external checking.",
+      "params": {
+        "tree_path": "str",
+        "filename": "str",
+        "mode": "str"
+      },
+      "required": [
+        "tree_path",
+        "filename"
+      ],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "tree_path": {
+            "type": "string"
+          },
+          "filename": {
+            "type": "string"
+          },
+          "mode": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "tree_path",
+          "filename"
+        ]
+      },
+      "returns": "{filename}",
+      "examples": [
+        {
+          "tree_path": "1D Results\\S-Parameters\\S1,1",
+          "filename": "C:\\CST_MCP_workspace\\evidence\\s11.txt",
+          "mode": "RealImag"
+        }
+      ],
+      "notes": [
+        "mode: RealImag | Magnitude | dB | Phase"
+      ],
+      "replaces_vba": "SelectTreeItem + ASCIIExport",
+      "extension": false
+    },
+    {
+      "name": "cst_export_touchstone_tool",
+      "category": "export",
+      "summary": "Export the S-parameters as a Touchstone file at a chosen reference impedance.",
+      "params": {
+        "filename": "str",
+        "impedance": "float",
+        "export_type": "str",
+        "data_format": "str",
+        "frequency_range": "str"
+      },
+      "required": [
+        "filename"
+      ],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "filename": {
+            "type": "string"
+          },
+          "impedance": {
+            "type": "number"
+          },
+          "export_type": {
+            "type": "string"
+          },
+          "data_format": {
+            "type": "string"
+          },
+          "frequency_range": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "filename"
+        ]
+      },
+      "returns": "{filename} (no extension; CST adds .s1p / .s2p)",
+      "examples": [
+        {
+          "filename": "C:\\CST_MCP_workspace\\evidence\\s11",
+          "impedance": 50.0,
+          "data_format": "RI"
+        }
+      ],
+      "notes": [
+        "Solve the project first: export of an unsolved model fails with",
+        "'TOUCHSTONE export calculation failed.'"
+      ],
+      "replaces_vba": "TOUCHSTONE object (.FileName/.Impedance/.Write)",
+      "extension": false
+    },
+    {
+      "name": "cst_extrude_curve_tool",
+      "category": "geometry",
+      "summary": "Extrude a closed planar curve item into a solid.",
+      "params": {
+        "component": "str",
+        "name": "str",
+        "curve": "str",
+        "thickness": "float",
+        "material": "str | null",
+        "twist": "float | null",
+        "taper": "float | null",
+        "title": "str | null"
+      },
+      "required": [
+        "component",
+        "name",
+        "curve",
+        "thickness"
+      ],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "component": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "curve": {
+            "type": "string"
+          },
+          "thickness": {
+            "type": "number"
+          },
+          "material": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "twist": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "taper": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "title": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "component",
+          "name",
+          "curve",
+          "thickness"
+        ]
+      },
+      "returns": "",
+      "examples": [],
+      "notes": [
+        "Create the curve first; CST consumes the curve item in this operation."
+      ],
+      "replaces_vba": "ExtrudeCurve object",
+      "extension": false
+    },
+    {
+      "name": "cst_frequency_overview_tool",
+      "category": "solver",
+      "summary": "Report the solver, the solver frequency range and every monitor frequency in one view.",
+      "params": {},
+      "required": [],
+      "json_schema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "returns": "{solver, frequency_range, monitors}",
+      "examples": [],
+      "notes": [
+        "Use this to confirm that the band you solve and the band you report are the same."
+      ],
+      "replaces_vba": "",
+      "extension": false
+    },
+    {
+      "name": "cst_generate_mesh_tool",
+      "category": "mesh",
+      "summary": "Mesh generation is not exposed through CST's VBA API.",
+      "params": {},
+      "required": [],
+      "json_schema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "returns": "{ok: false, error, alternative}",
+      "examples": [],
+      "notes": [
+        "CST 2026.2 has NO VBA command that builds the mesh on its own. The Mesh object documented in the VBA reference exposes settings only (MeshType, LinesPerWavelength, MinimumStepNumber, ...); a bare `Mesh` statement fails with 'Default property usage is invalid', and Mesh.Create / Mesh.Reset / MeshGeneration / MeshAdaption3D.Create do not exist either (all verified against the live build).",
+        "The mesh is built by the solver, so run cst_run_solver_tool directly. The previous version of this tool emitted `Mesh` and therefore always failed, which also made cst_run_solver_tool report the stale error.",
+        "To control the mesh, use cst_set_mesh_tool: it emits the real Mesh object settings, which the solver then honours."
+      ],
+      "replaces_vba": "(none - use Mesh.* settings via cst_set_mesh_tool, then run the solver)",
+      "extension": false
+    },
+    {
+      "name": "cst_get_parameters_tool",
+      "category": "parameters",
+      "summary": "Read every design parameter of the active project (name and value).",
+      "params": {},
+      "required": [],
+      "json_schema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "returns": "{count, parameters: {name: value}}",
+      "examples": [
+        {}
+      ],
+      "notes": [
+        "Call this before changing anything: CST is the source of truth for names."
+      ],
+      "replaces_vba": "GetNumberOfParameters / GetParameterName / RestoreParameter loop",
+      "extension": false
+    },
+    {
+      "name": "cst_get_solver_tool",
+      "category": "solver",
+      "summary": "Read the currently active solver.",
+      "params": {},
+      "required": [],
+      "json_schema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "returns": "{solver}",
+      "examples": [],
+      "notes": [],
+      "replaces_vba": "GetSolverType",
+      "extension": false
+    },
+    {
+      "name": "cst_health_check_tool",
+      "category": "session",
+      "summary": "Check CST install, Python libraries, workspace and running Design Environments.",
+      "params": {},
+      "required": [],
+      "json_schema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "returns": "environment report with a `ready` flag",
+      "examples": [
+        {}
+      ],
+      "notes": [
+        "Call this first on a new or offline machine.",
+        "Also reports free RAM and the number of live CST worker processes, because each open 3D project holds roughly 700 MB and a frequency-domain solve needs about 2 GB free; 'Not enough memory' during the solve is usually this."
+      ],
+      "replaces_vba": "",
+      "extension": false
+    },
+    {
+      "name": "cst_list_design_environments_tool",
+      "category": "session",
+      "summary": "List the PIDs of running CST Design Environments.",
+      "params": {},
+      "required": [],
+      "json_schema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "returns": "count and pids",
+      "examples": [],
+      "notes": [],
+      "replaces_vba": "",
+      "extension": false
+    },
+    {
+      "name": "cst_list_mcp_tools_tool",
+      "category": "meta",
+      "summary": "List every CST MCP tool with its category, summary and parameters.",
+      "params": {
+        "category": "str | null"
+      },
+      "required": [],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "returns": "{count, categories, tools}",
+      "examples": [],
+      "notes": [
+        "Use this to discover the surface instead of guessing tool names."
+      ],
+      "replaces_vba": "",
+      "extension": false
+    },
+    {
+      "name": "cst_list_monitors_tool",
+      "category": "monitor",
+      "summary": "List the monitors defined in the project.",
+      "params": {},
+      "required": [],
+      "json_schema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "returns": "{count, monitors}",
+      "examples": [],
+      "notes": [
+        "CST indexes monitors from 0."
+      ],
+      "replaces_vba": "Monitor.GetNumberOfMonitors / GetMonitorNameFromIndex",
+      "extension": false
+    },
+    {
+      "name": "cst_list_ports_tool",
+      "category": "port",
+      "summary": "List the ports defined in the project and their types.",
+      "params": {},
+      "required": [],
+      "json_schema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "returns": "{count, ports}",
+      "examples": [],
+      "notes": [],
+      "replaces_vba": "Port.StartPortNumberIteration / GetNextPortNumber / GetType",
+      "extension": false
+    },
+    {
+      "name": "cst_list_results_tool",
+      "category": "results",
+      "summary": "List the items of the 3D or schematic result tree.",
+      "params": {
+        "cst_file": "str | null",
+        "module": "str"
+      },
+      "required": [],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "cst_file": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "module": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "returns": "{count, items}",
+      "examples": [
+        {
+          "module": "3d"
+        }
+      ],
+      "notes": [],
+      "replaces_vba": "Result tree enumeration",
+      "extension": false
+    },
+    {
+      "name": "cst_load_material_from_library_tool",
+      "category": "material",
+      "summary": "Add a material to the project from the CST material library.",
+      "params": {
+        "library_path": "str",
+        "material_name": "str | null",
+        "replace": "bool"
+      },
+      "required": [
+        "library_path"
+      ],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "library_path": {
+            "type": "string"
+          },
+          "material_name": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "replace": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "library_path"
+        ]
+      },
+      "returns": "",
+      "examples": [
+        {
+          "library_path": "FR-4 (lossy)",
+          "material_name": "FR4_substrate"
+        },
+        {
+          "library_path": "Copper (annealed)"
+        }
+      ],
+      "notes": [
+        "library_path is the material name (or 'folder/material') as listed in the CST library.",
+        "Verified on 2026.2: this is MaterialLibrary.LoadMaterialFromLibrary, not Material.LoadFromLibrary.",
+        "material_name renames the loaded material inside the project. CST's loader always names the project material after the LIBRARY entry, so without this the requested name would silently not exist. Verified live: Material.Rename succeeds after LoadMaterialFromLibrary and the renamed material keeps its properties.",
+        "The returned 'material' key is the name that really exists in the project - use it, not the library name, when assigning the material to a solid."
+      ],
+      "replaces_vba": "MaterialLibrary.LoadMaterialFromLibrary / Material.Rename",
+      "extension": false
+    },
+    {
+      "name": "cst_messages_tool",
+      "category": "session",
+      "summary": "Read the CST message window (INFO / WARNING / ERROR).",
+      "params": {
+        "limit": "int",
+        "errors_only": "bool"
+      },
+      "required": [],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "limit": {
+            "type": "integer"
+          },
+          "errors_only": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "returns": "list of {type, text}",
+      "examples": [],
+      "notes": [
+        "This is where the real reason for a failed solve appears."
+      ],
+      "replaces_vba": "",
+      "extension": false
+    },
+    {
+      "name": "cst_model_audit_tool",
+      "category": "verify",
+      "summary": "Audit the built model: solids, materials, volumes and bounding boxes.",
+      "params": {},
+      "required": [],
+      "json_schema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "returns": "{shape_count, shapes}",
+      "examples": [],
+      "notes": [
+        "Volume is the cheap independent check that a boolean actually happened:",
+        "a brick with a slot cut out must have the smaller volume."
+      ],
+      "replaces_vba": "Solid.GetNumberOfShapes / GetVolume / GetLooseBoundingBoxOfShape",
+      "extension": false
+    },
+    {
+      "name": "cst_move_solid_to_component_tool",
+      "category": "geometry",
+      "summary": "Move a solid into another component.",
+      "params": {
+        "solid": "str",
+        "component": "str"
+      },
+      "required": [
+        "solid",
+        "component"
+      ],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "solid": {
+            "type": "string"
+          },
+          "component": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "solid",
+          "component"
+        ]
+      },
+      "returns": "",
+      "examples": [],
+      "notes": [
+        "The target component must already exist (create one with cst_new_component_tool)."
+      ],
+      "replaces_vba": "Solid.ChangeComponent",
+      "extension": false
+    },
+    {
+      "name": "cst_new_component_tool",
+      "category": "geometry",
+      "summary": "Create a new (empty) component in the model tree.",
+      "params": {
+        "name": "str"
+      },
+      "required": [
+        "name"
+      ],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
+      },
+      "returns": "",
+      "examples": [],
+      "notes": [],
+      "replaces_vba": "Component.New",
+      "extension": false
+    },
+    {
+      "name": "cst_new_project_tool",
+      "category": "session",
+      "summary": "Create a new CST project and save it into the workspace immediately.",
+      "params": {
+        "project_type": "str",
+        "path": "str | null"
+      },
+      "required": [],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "project_type": {
+            "type": "string"
+          },
+          "path": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "returns": "session info plus saved_to",
+      "examples": [
+        {
+          "project_type": "mws"
+        }
+      ],
+      "notes": [
+        "project_type: mws, ems, ps, mps, cs, pcbs, ds"
+      ],
+      "replaces_vba": "",
+      "extension": false
+    },
+    {
+      "name": "cst_open_project_tool",
+      "category": "session",
+      "summary": "Open a .cst project in the connected Design Environment.",
+      "params": {
+        "path": "str"
+      },
+      "required": [
+        "path"
+      ],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "path"
+        ]
+      },
+      "returns": "",
+      "examples": [
+        {
+          "path": "C:\\CST_MCP_workspace\\antenna.cst"
+        }
+      ],
+      "notes": [],
+      "replaces_vba": "",
+      "extension": false
+    },
+    {
+      "name": "cst_project_info_tool",
+      "category": "session",
+      "summary": "Report the active project, all open projects and the recent CST messages.",
+      "params": {},
+      "required": [],
+      "json_schema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "returns": "project metadata and message tail",
+      "examples": [],
+      "notes": [
+        "Read messages_tail after any failure: CST explains itself there."
+      ],
+      "replaces_vba": "",
+      "extension": false
+    },
+    {
+      "name": "cst_quit_tool",
+      "category": "session",
+      "summary": "Close every open project and release the Design Environment process.",
+      "params": {},
+      "required": [],
+      "json_schema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "returns": "{ok, closed_projects, failed_projects, design_environment_released}",
+      "examples": [],
+      "notes": [
+        "Call this at the end of a job. Each open 3D project holds roughly 700 MB in its own modeler_AMD64 worker, so leaving projects open is what makes the next solve fail with 'Not enough memory'.",
+        "Unlike the previous version this closes ALL projects, not only the active one, and then closes the Design Environment itself (verified live: the CST process and its workers all exit)."
+      ],
+      "replaces_vba": "",
+      "extension": false
+    },
+    {
+      "name": "cst_read_port_info_tool",
+      "category": "verify",
+      "summary": "Read port mode information: cutoff frequency, wave impedance, effective permittivity.",
+      "params": {
+        "cst_file": "str | null",
+        "operating_frequency": "float | null"
+      },
+      "required": [],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "cst_file": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "operating_frequency": {
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "returns": "{cutoff_frequency, wave_impedance, effective_dielectric_constant, verdict}",
+      "examples": [
+        {},
+        {
+          "operating_frequency": 2.4
+        }
+      ],
+      "notes": [
+        "cutoff_frequency above the operating band means the mode is evanescent and the S-parameters cannot be trusted - use a discrete port instead.",
+        "operating_frequency is optional. Without it the verdict is compared against the solver's own lower band edge, read from the project, so it is correct for any band.",
+        "Values are in the project's frequency unit (GHz for HF projects)."
+      ],
+      "replaces_vba": "",
+      "extension": false
+    },
+    {
+      "name": "cst_read_reference_impedance_tool",
+      "category": "verify",
+      "summary": "Read the S-parameter reference impedance (ZRef) - must match the impedance you intend.",
+      "params": {
+        "cst_file": "str | null"
+      },
+      "required": [],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "cst_file": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "returns": "{value_at_first, value_at_last, sample}",
+      "examples": [],
+      "notes": [
+        "A discrete port with Impedance=50 should give exactly 50+0j.",
+        "If this is not your intended impedance, every S-parameter is wrong."
+      ],
+      "replaces_vba": "",
+      "extension": false
+    },
+    {
+      "name": "cst_read_result_tool",
+      "category": "results",
+      "summary": "Read a 1D result tree item (S-parameters, efficiency, power, convergence).",
+      "params": {
+        "tree_path": "str",
+        "cst_file": "str | null",
+        "module": "str",
+        "max_points": "int",
+        "at_frequency": "float | null"
+      },
+      "required": [
+        "tree_path"
+      ],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "tree_path": {
+            "type": "string"
+          },
+          "cst_file": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "module": {
+            "type": "string"
+          },
+          "max_points": {
+            "type": "integer"
+          },
+          "at_frequency": {
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "tree_path"
+        ]
+      },
+      "returns": "{tree_path, length, data, at_frequency?}",
+      "examples": [
+        {
+          "tree_path": "1D Results\\S-Parameters\\S1,1"
+        },
+        {
+          "tree_path": "1D Results\\S-Parameters\\S1,1",
+          "at_frequency": 2.4
+        }
+      ],
+      "notes": [
+        "S-parameters come back as complex values: convert with 20*log10(abs(S)) yourself.",
+        "Use at_frequency to get the nearest sample to a frequency of interest."
+      ],
+      "replaces_vba": "ResultTree / SelectTreeItem + Result1D getters",
+      "extension": false
+    },
+    {
+      "name": "cst_read_s11_tool",
+      "category": "verify",
+      "summary": "Read S11 and report it in dB at a target frequency (the usual acceptance check).",
+      "params": {
+        "tree_path": "str",
+        "target_frequency": "float",
+        "cst_file": "str | null"
+      },
+      "required": [],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "tree_path": {
+            "type": "string"
+          },
+          "target_frequency": {
+            "type": "number"
+          },
+          "cst_file": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "returns": "{s11_db_at_target, best_s11_db, best_frequency, meets_minus10dB}",
+      "examples": [
+        {
+          "target_frequency": 2.4
+        }
+      ],
+      "notes": [
+        "dB is computed here as 20*log10(abs(S11)) so it cannot be misread."
+      ],
+      "replaces_vba": "",
+      "extension": false
+    },
+    {
+      "name": "cst_rename_solid_tool",
+      "category": "geometry",
+      "summary": "Rename an existing solid.",
+      "params": {
+        "old_name": "str",
+        "new_name": "str"
+      },
+      "required": [
+        "old_name",
+        "new_name"
+      ],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "old_name": {
+            "type": "string"
+          },
+          "new_name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "old_name",
+          "new_name"
+        ]
+      },
+      "returns": "",
+      "examples": [],
+      "notes": [],
+      "replaces_vba": "Solid.Rename",
+      "extension": false
+    },
+    {
+      "name": "cst_run_solver_tool",
+      "category": "solver",
+      "summary": "Run the configured solver and report CST's own diagnostics on failure.",
+      "params": {
+        "allow_low_memory": "bool"
+      },
+      "required": [],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "allow_low_memory": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "returns": "{ok, error?, messages_tail, memory?}",
+      "examples": [],
+      "notes": [
+        "Save the project first (cst_save_project_tool).",
+        "A failure returns the real CST message, e.g. 'Frequency range not set correctly.'",
+        "Before starting, free RAM is checked: a frequency-domain solve needs about 2 GB and otherwise dies inside CST with 'Error during construction of pre-conditioner. Not enough memory.' When RAM is short the tool refuses with an actionable message instead, unless allow_low_memory=True.",
+        "Each project left open costs about 0.7 GB; cst_quit_tool releases them all."
+      ],
+      "replaces_vba": "Model3D.RunSolver",
+      "extension": false
+    },
+    {
+      "name": "cst_run_vba_tool",
+      "category": "session",
+      "summary": "Execute raw CST VBA immediately (not stored in the history tree).",
+      "params": {
+        "vba_code": "str"
+      },
+      "required": [
+        "vba_code"
+      ],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "vba_code": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "vba_code"
+        ]
+      },
+      "returns": "",
+      "examples": [
+        {
+          "vba_code": "ReportInformationToWindow \"hello\""
+        }
+      ],
+      "notes": [
+        "Use for queries and small fixes. Use cst_add_to_history_tool for model structure.",
+        "A Sub Main wrapper is added automatically when the code has none."
+      ],
+      "replaces_vba": "",
+      "extension": false
+    },
+    {
+      "name": "cst_runtime_args_template_tool",
+      "category": "runtime",
+      "summary": "Return an argument template for one runtime command.",
+      "params": {
+        "tool_name": "str"
+      },
+      "required": [
+        "tool_name"
+      ],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "tool_name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "tool_name"
+        ]
+      },
+      "returns": "",
+      "examples": [],
+      "notes": [],
+      "replaces_vba": "",
+      "extension": false
+    },
+    {
+      "name": "cst_runtime_describe_tool",
+      "category": "runtime",
+      "summary": "Describe one runtime command.",
+      "params": {
+        "tool_name": "str"
+      },
+      "required": [
+        "tool_name"
+      ],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "tool_name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "tool_name"
+        ]
+      },
+      "returns": "",
+      "examples": [],
+      "notes": [],
+      "replaces_vba": "",
+      "extension": false
+    },
+    {
+      "name": "cst_runtime_detect_tool",
+      "category": "runtime",
+      "summary": "Report the built-in runtime command bridge and its commands.",
+      "params": {},
+      "required": [],
+      "json_schema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "returns": "{ok, command_count, commands}",
+      "examples": [],
+      "notes": [
+        "Works without the vendored cst-runtime-cli scripts."
+      ],
+      "replaces_vba": "",
+      "extension": false
+    },
+    {
+      "name": "cst_runtime_invoke_tool",
+      "category": "runtime",
+      "summary": "Invoke a runtime command by name with JSON arguments.",
+      "params": {
+        "tool_name": "str",
+        "args": "dict"
+      },
+      "required": [
+        "tool_name"
+      ],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "tool_name": {
+            "type": "string"
+          },
+          "args": {
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "tool_name"
+        ]
+      },
+      "returns": "",
+      "examples": [
+        {
+          "tool_name": "health-check"
+        },
+        {
+          "tool_name": "get-1d-result",
+          "args": {
+            "tree_path": "1D Results\\S-Parameters\\S1,1"
+          }
+        }
+      ],
+      "notes": [
+        "Run cst_runtime_list_tools_tool to see the command names."
+      ],
+      "replaces_vba": "",
+      "extension": false
+    },
+    {
+      "name": "cst_runtime_list_pipelines_tool",
+      "category": "runtime",
+      "summary": "List the runtime workflow recipes.",
+      "params": {},
+      "required": [],
+      "json_schema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "returns": "{count, pipelines}",
+      "examples": [],
+      "notes": [],
+      "replaces_vba": "",
+      "extension": false
+    },
+    {
+      "name": "cst_runtime_list_tools_tool",
+      "category": "runtime",
+      "summary": "List the runtime commands available through this MCP server.",
+      "params": {},
+      "required": [],
+      "json_schema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "returns": "{count, tools}",
+      "examples": [],
+      "notes": [],
+      "replaces_vba": "",
+      "extension": false
+    },
+    {
+      "name": "cst_runtime_usage_guide_tool",
+      "category": "runtime",
+      "summary": "Return the machine-readable usage guide for the runtime family.",
+      "params": {},
+      "required": [],
+      "json_schema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "returns": "",
+      "examples": [],
+      "notes": [],
+      "replaces_vba": "",
+      "extension": false
+    },
+    {
+      "name": "cst_save_project_tool",
+      "category": "session",
+      "summary": "Save the active project, optionally to a specific path.",
+      "params": {
+        "path": "str | null",
+        "overwrite": "bool"
+      },
+      "required": [],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "overwrite": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "returns": "{ok, path, overwritten}",
+      "examples": [
+        {
+          "path": "C:\\CST_MCP_workspace\\antenna.cst"
+        },
+        {
+          "path": "C:\\CST_MCP_workspace\\antenna.cst",
+          "overwrite": true
+        }
+      ],
+      "notes": [
+        "CST refuses a save onto an existing project, in one of two ways: 'The given path already exists <file>', or 'The project directory <dir> already exists and is non-empty. It would be overwritten.' Saving to the same path twice in a run (save -> solve -> save) therefore needs overwrite=True.",
+        "overwrite=True passes CST's own allow_overwrite flag. If a project still occupies that path it is closed first: Model/ and Result/ stay locked while it is open and CST then fails with a bare 'Failed to save project'. No dialog is raised and no file is deleted by this server. Verified on CST 2026.2 - see docs/dev/verification.md.",
+        "If the target is already the active project file, the tool saves in place instead and never closes or deletes anything."
+      ],
+      "replaces_vba": "",
+      "extension": false
+    },
+    {
+      "name": "cst_set_background_tool",
+      "category": "solver",
+      "summary": "Set the background material and the extra space added around the model.",
+      "params": {
+        "epsilon": "float",
+        "mue": "float",
+        "xmin_space": "float",
+        "xmax_space": "float",
+        "ymin_space": "float",
+        "ymax_space": "float",
+        "zmin_space": "float",
+        "zmax_space": "float",
+        "apply_in_all_directions": "bool"
+      },
+      "required": [],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "epsilon": {
+            "type": "number"
+          },
+          "mue": {
+            "type": "number"
+          },
+          "xmin_space": {
+            "type": "number"
+          },
+          "xmax_space": {
+            "type": "number"
+          },
+          "ymin_space": {
+            "type": "number"
+          },
+          "ymax_space": {
+            "type": "number"
+          },
+          "zmin_space": {
+            "type": "number"
+          },
+          "zmax_space": {
+            "type": "number"
+          },
+          "apply_in_all_directions": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "returns": "",
+      "examples": [
+        {
+          "epsilon": 1.0,
+          "mue": 1.0,
+          "apply_in_all_directions": true
+        }
+      ],
+      "notes": [
+        "Zero spacing with 'expanded open' boundaries lets CST add a quarter-wave space itself.",
+        "CST's background default is PEC, not vacuum: set epsilon 1.0 explicitly for an open, radiating problem.",
+        "The VBA parameter name is 'mue' for compatibility, but it maps to the Background object's documented Mu method."
+      ],
+      "replaces_vba": "Background.Reset / Type / Epsilon / Mu / *Space / ApplyInAllDirections",
+      "extension": false
+    },
+    {
+      "name": "cst_set_boundary_tool",
+      "category": "solver",
+      "summary": "Set the boundary conditions on the six domain sides.",
+      "params": {
+        "xmin": "str",
+        "xmax": "str",
+        "ymin": "str",
+        "ymax": "str",
+        "zmin": "str",
+        "zmax": "str",
+        "all": "str | null"
+      },
+      "required": [],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "xmin": {
+            "type": "string"
+          },
+          "xmax": {
+            "type": "string"
+          },
+          "ymin": {
+            "type": "string"
+          },
+          "ymax": {
+            "type": "string"
+          },
+          "zmin": {
+            "type": "string"
+          },
+          "zmax": {
+            "type": "string"
+          },
+          "all": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "returns": "",
+      "examples": [
+        {
+          "all": "expanded open"
+        },
+        {
+          "xmin": "electric",
+          "xmax": "electric",
+          "ymin": "magnetic",
+          "ymax": "magnetic",
+          "zmin": "open",
+          "zmax": "open"
+        }
+      ],
+      "notes": [
+        "Kinds: expanded open, open, open (add space), electric, magnetic, tangential, normal, periodic, unit cell, conducting wall.",
+        "'expanded open' is the usual choice for a radiating antenna.",
+        "Values are matched case-insensitively and the canonical lower-case spelling is what reaches CST."
+      ],
+      "replaces_vba": "Boundary.Xmin / Xmax / Ymin / Ymax / Zmin / Zmax",
+      "extension": false
+    },
+    {
+      "name": "cst_set_frequency_range_tool",
+      "category": "solver",
+      "summary": "Set the solver frequency range (the band that is actually simulated).",
+      "params": {
+        "fmin": "float",
+        "fmax": "float",
+        "unit": "str"
+      },
+      "required": [
+        "fmin",
+        "fmax"
+      ],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "fmin": {
+            "type": "number"
+          },
+          "fmax": {
+            "type": "number"
+          },
+          "unit": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "fmin",
+          "fmax"
+        ]
+      },
+      "returns": "{frequency_range: [fmin, fmax], unit, unit_applied, previous_unit}",
+      "examples": [
+        {
+          "fmin": 2.2,
+          "fmax": 2.7,
+          "unit": "GHz"
+        }
+      ],
+      "notes": [
+        "This is the solver range. It is different from monitor frequencies and from the export grid.",
+        "Always save the project after changing it: a solver run without a range fails with",
+        "'Solver run failed. Frequency range not set correctly.'",
+        "unit sets the PROJECT frequency unit with Units.SetUnit before setting the range, and the reply reports the unit CST actually holds. Solver.FrequencyRange takes plain numbers in the project unit, so passing unit='MHz' to a GHz project without this would set a 1000x wrong band.",
+        "Allowed units: Hz, kHz, MHz, GHz, THz."
+      ],
+      "replaces_vba": "Solver.FrequencyRange / Units.SetUnit (\"Frequency\", ...)",
+      "extension": false
+    },
+    {
+      "name": "cst_set_mesh_tool",
+      "category": "mesh",
+      "summary": "Set the mesh type and its density (steps per wavelength, minimum steps).",
+      "params": {
+        "mesh_type": "str",
+        "steps_per_wavelength": "float | null",
+        "min_step_number": "int | null",
+        "lines_per_wavelength": "int | null",
+        "smallest_feature_mm": "float | null"
+      },
+      "required": [],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "mesh_type": {
+            "type": "string"
+          },
+          "steps_per_wavelength": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "min_step_number": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "lines_per_wavelength": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "smallest_feature_mm": {
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "returns": "",
+      "examples": [
+        {
+          "mesh_type": "Tetrahedral",
+          "steps_per_wavelength": 12
+        },
+        {
+          "mesh_type": "HexahedralFIT",
+          "lines_per_wavelength": 20
+        },
+        {
+          "mesh_type": "Tetrahedral",
+          "smallest_feature_mm": 2.0
+        }
+      ],
+      "notes": [
+        "mesh_type: HexahedralFIT | HexahedralTLM | Tetrahedral | Surface | SurfaceML | Planar",
+        "steps_per_wavelength applies to the tetrahedral mesh; lines_per_wavelength to hexahedral FIT.",
+        "smallest_feature_mm is the practical way to size a tetrahedral mesh: give the smallest gap or thickness in the model and the required minimum step count is derived from the solver band. Without it a thin gap is meshed with elements sized for the wavelength, the system is badly conditioned, and the frequency domain solver fails with 'Could not compute preconditioner.' (verified: a 2 mm gap in a 0-100 MHz model needed MinimumStepNumberTet of a few hundred to solve at all).",
+        "min_step_number overrides smallest_feature_mm when both are given."
+      ],
+      "replaces_vba": "Mesh.MeshType / StepsPerWavelengthTet / MinimumStepNumberTet / LinesPerWavelength",
+      "extension": false
+    },
+    {
+      "name": "cst_set_parameters_tool",
+      "category": "parameters",
+      "summary": "Change one or more design parameters through the CST parameter list.",
+      "params": {
+        "parameters": "dict",
+        "save": "bool"
+      },
+      "required": [
+        "parameters"
+      ],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "parameters": {
+            "type": "object"
+          },
+          "save": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "parameters"
+        ]
+      },
+      "returns": "{changed: {name: value}, method}",
+      "examples": [
+        {
+          "parameters": {
+            "Lpatch": 26.91,
+            "dinset": 21.6
+          }
+        },
+        {
+          "parameters": {
+            "freq": 2.45
+          },
+          "save": true
+        }
+      ],
+      "notes": [
+        "This is the ONLY correct way to change a parameter.",
+        "Never write StoreParameter/StoreParameters/Rebuild into cst_add_to_history_tool.",
+        "The model is rebuilt automatically; no separate rebuild call is needed."
+      ],
+      "replaces_vba": "StoreParameters names, values + Rebuild (as a Sub Main block)",
+      "extension": false
+    },
+    {
+      "name": "cst_set_solver_tool",
+      "category": "solver",
+      "summary": "Select the solver (high frequency time domain / frequency domain / eigenmode / ...).",
+      "params": {
+        "solver": "str"
+      },
+      "required": [
+        "solver"
+      ],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "solver": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "solver"
+        ]
+      },
+      "returns": "{solver: <canonical name>}",
+      "examples": [
+        {
+          "solver": "HF Frequency Domain"
+        },
+        {
+          "solver": "frequency domain"
+        },
+        {
+          "solver": "HF Time Domain"
+        },
+        {
+          "solver": "HF Eigenmode"
+        }
+      ],
+      "notes": [
+        "Plain-English aliases are accepted: 'frequency domain', 'time domain', 'eigenmode'.",
+        "The solver string is read back from CST, so the result shows what is really active."
+      ],
+      "replaces_vba": "ChangeSolverType",
+      "extension": false
+    },
+    {
+      "name": "cst_set_symmetry_tool",
+      "category": "solver",
+      "summary": "Set electric/magnetic symmetry planes (halves the solve time).",
+      "params": {
+        "x": "str",
+        "y": "str",
+        "z": "str"
+      },
+      "required": [],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "x": {
+            "type": "string"
+          },
+          "y": {
+            "type": "string"
+          },
+          "z": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "returns": "",
+      "examples": [
+        {
+          "x": "none",
+          "y": "magnetic",
+          "z": "none"
+        }
+      ],
+      "notes": [
+        "Symmetry must match the real field symmetry or the result is wrong. 'none' disables it."
+      ],
+      "replaces_vba": "Boundary.Xsymmetry / Ysymmetry / Zsymmetry",
+      "extension": false
+    },
+    {
+      "name": "cst_sweep_preview_tool",
+      "category": "sweep",
+      "summary": "Expand a parameter sweep spec into concrete cases and report the case count. Does not start CST.",
+      "params": {
+        "parameters": "dict",
+        "mode": "str",
+        "max_cases": "int"
+      },
+      "required": [
+        "parameters"
+      ],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "parameters": {
+            "type": "object"
+          },
+          "mode": {
+            "type": "string"
+          },
+          "max_cases": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "parameters"
+        ]
+      },
+      "returns": "{ok, mode, case_count, parameters, cases}",
+      "examples": [
+        {
+          "parameters": {
+            "L": "48:52:2"
+          },
+          "mode": "single"
+        },
+        {
+          "parameters": {
+            "L": [
+              48,
+              50
+            ],
+            "w": [
+              2,
+              3
+            ]
+          },
+          "mode": "cartesian",
+          "max_cases": 20
+        }
+      ],
+      "notes": [
+        "Call this BEFORE cst_sweep_run_tool: it is the cheap half and it never",
+        "opens CST or writes files. Show the case count to the user first when the",
+        "count is large or the cases will be solved.",
+        "Value specs accept a list [48, 50] or a range string 'start:stop:step'.",
+        "mode: single (vary the first parameter only), zip (pair values, shortest",
+        "wins), cartesian (full product - the only mode whose count multiplies).",
+        "max_cases is a guard, not a target: exceeding it raises instead of running."
+      ],
+      "replaces_vba": "(no CST VBA - pure case enumeration)",
+      "extension": false
+    },
+    {
+      "name": "cst_sweep_run_tool",
+      "category": "sweep",
+      "summary": "Run a parameter sweep: one copied project per case, parameters applied, optional solve and export.",
+      "params": {
+        "project_path": "str",
+        "parameters": "dict",
+        "output_dir": "str | null",
+        "mode": "str",
+        "run_solver": "bool",
+        "export_touchstone": "bool",
+        "result_tree_paths": "list | null",
+        "max_cases": "int",
+        "overwrite": "bool",
+        "continue_on_error": "bool",
+        "close_after_case": "bool",
+        "result_max_points": "int"
+      },
+      "required": [
+        "project_path",
+        "parameters"
+      ],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "project_path": {
+            "type": "string"
+          },
+          "parameters": {
+            "type": "object"
+          },
+          "output_dir": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "mode": {
+            "type": "string"
+          },
+          "run_solver": {
+            "type": "boolean"
+          },
+          "export_touchstone": {
+            "type": "boolean"
+          },
+          "result_tree_paths": {
+            "type": [
+              "array",
+              "null"
+            ]
+          },
+          "max_cases": {
+            "type": "integer"
+          },
+          "overwrite": {
+            "type": "boolean"
+          },
+          "continue_on_error": {
+            "type": "boolean"
+          },
+          "close_after_case": {
+            "type": "boolean"
+          },
+          "result_max_points": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "project_path",
+          "parameters"
+        ]
+      },
+      "returns": "{ok, mode, case_count, completed, failed, output_dir, summary_csv, manifest}",
+      "examples": [
+        {
+          "project_path": "C:\\\\Users\\\\<user>\\\\Desktop\\\\123.cst",
+          "parameters": {
+            "L": "48:52:2"
+          },
+          "mode": "single",
+          "run_solver": false
+        }
+      ],
+      "notes": [
+        "Does not modify the source project: each case gets its own copy.",
+        "run_solver defaults to False - the sweep is cheap and safe by default, and",
+        "a 100-case sweep with solves can take hours. Set it only when you mean it.",
+        "Output defaults to <source folder>/sweeps/<project>_<timestamp>/ and does",
+        "not depend on CST_MCP_WORKSPACE, so it works even if .env is incomplete.",
+        "Reads sweep_summary.csv for the per-case table and sweep_manifest.json for",
+        "the full record. Report failures from those files, not from memory.",
+        "Always preview first with cst_sweep_preview_tool."
+      ],
+      "replaces_vba": "(no single CST command - orchestrates per-case parameter changes)",
+      "extension": false
+    },
+    {
+      "name": "cst_tool_manifest_tool",
+      "category": "meta",
+      "summary": "Return the full machine-readable manifest of the CST MCP (write it to a file with out_path).",
+      "params": {
+        "out_path": "str | null"
+      },
+      "required": [],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "out_path": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "returns": "the manifest object, and the file path when out_path is given",
+      "examples": [],
+      "notes": [
+        "Another agent can read this JSON to learn the whole tool surface and the workflow."
+      ],
+      "replaces_vba": "",
+      "extension": false
+    },
+    {
+      "name": "cst_toolbox_args_template_tool",
+      "category": "runtime",
+      "summary": "Alias of cst_runtime_args_template_tool.",
+      "params": {
+        "tool_name": "str"
+      },
+      "required": [
+        "tool_name"
+      ],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "tool_name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "tool_name"
+        ]
+      },
+      "returns": "",
+      "examples": [],
+      "notes": [],
+      "replaces_vba": "",
+      "extension": false
+    },
+    {
+      "name": "cst_toolbox_describe_tool",
+      "category": "runtime",
+      "summary": "Alias of cst_runtime_describe_tool.",
+      "params": {
+        "tool_name": "str"
+      },
+      "required": [
+        "tool_name"
+      ],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "tool_name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "tool_name"
+        ]
+      },
+      "returns": "",
+      "examples": [],
+      "notes": [],
+      "replaces_vba": "",
+      "extension": false
+    },
+    {
+      "name": "cst_toolbox_detect_tool",
+      "category": "runtime",
+      "summary": "Alias of cst_runtime_detect_tool.",
+      "params": {},
+      "required": [],
+      "json_schema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "returns": "",
+      "examples": [],
+      "notes": [],
+      "replaces_vba": "",
+      "extension": false
+    },
+    {
+      "name": "cst_toolbox_generate_typed_wrappers_tool",
+      "category": "runtime",
+      "summary": "Generate typed Python wrappers for the runtime commands into a file.",
+      "params": {
+        "output_path": "str | null",
+        "category": "str | null"
+      },
+      "required": [],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "output_path": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "category": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "returns": "{ok, output_path, tool_count, functions}",
+      "examples": [],
+      "notes": [],
+      "replaces_vba": "",
+      "extension": false
+    },
+    {
+      "name": "cst_toolbox_invoke_tool",
+      "category": "runtime",
+      "summary": "Alias of cst_runtime_invoke_tool.",
+      "params": {
+        "tool_name": "str",
+        "args": "dict"
+      },
+      "required": [
+        "tool_name"
+      ],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "tool_name": {
+            "type": "string"
+          },
+          "args": {
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "tool_name"
+        ]
+      },
+      "returns": "",
+      "examples": [],
+      "notes": [],
+      "replaces_vba": "",
+      "extension": false
+    },
+    {
+      "name": "cst_toolbox_list_pipelines_tool",
+      "category": "runtime",
+      "summary": "Alias of cst_runtime_list_pipelines_tool.",
+      "params": {},
+      "required": [],
+      "json_schema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "returns": "",
+      "examples": [],
+      "notes": [],
+      "replaces_vba": "",
+      "extension": false
+    },
+    {
+      "name": "cst_toolbox_list_tools_tool",
+      "category": "runtime",
+      "summary": "Alias of cst_runtime_list_tools_tool.",
+      "params": {},
+      "required": [],
+      "json_schema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "returns": "",
+      "examples": [],
+      "notes": [],
+      "replaces_vba": "",
+      "extension": false
+    },
+    {
+      "name": "cst_toolbox_schema_catalog_tool",
+      "category": "runtime",
+      "summary": "Return the JSON-schema catalog of the runtime commands.",
+      "params": {
+        "category": "str | null"
+      },
+      "required": [],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "returns": "{count, tools}",
+      "examples": [],
+      "notes": [],
+      "replaces_vba": "",
+      "extension": false
+    },
+    {
+      "name": "cst_toolbox_usage_guide_tool",
+      "category": "runtime",
+      "summary": "Alias of cst_runtime_usage_guide_tool.",
+      "params": {},
+      "required": [],
+      "json_schema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "returns": "",
+      "examples": [],
+      "notes": [],
+      "replaces_vba": "",
+      "extension": false
+    },
+    {
+      "name": "cst_transform_tool",
+      "category": "geometry",
+      "summary": "Transform a solid: translate, rotate, scale or mirror.",
+      "params": {
+        "operation": "str",
+        "name": "str",
+        "vector": "list | null",
+        "center": "list | null",
+        "axis": "str",
+        "angle": "float | null",
+        "plane": "str | null",
+        "scale": "list | null",
+        "multiple_objects": "bool",
+        "repetitions": "int",
+        "group_objects": "bool",
+        "title": "str | null"
+      },
+      "required": [
+        "operation",
+        "name"
+      ],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "operation": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "vector": {
+            "type": [
+              "array",
+              "null"
+            ]
+          },
+          "center": {
+            "type": [
+              "array",
+              "null"
+            ]
+          },
+          "axis": {
+            "type": "string"
+          },
+          "angle": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "plane": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "scale": {
+            "type": [
+              "array",
+              "null"
+            ]
+          },
+          "multiple_objects": {
+            "type": "boolean"
+          },
+          "repetitions": {
+            "type": "integer"
+          },
+          "group_objects": {
+            "type": "boolean"
+          },
+          "title": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "operation",
+          "name"
+        ]
+      },
+      "returns": "",
+      "examples": [
+        {
+          "operation": "translate",
+          "name": "parts:box",
+          "vector": [
+            0,
+            0,
+            5
+          ]
+        },
+        {
+          "operation": "rotate",
+          "name": "parts:box",
+          "center": [
+            0,
+            0,
+            0
+          ],
+          "axis": "z",
+          "angle": 90
+        }
+      ],
+      "notes": [
+        "translate needs vector; rotate needs center+axis+angle;",
+        "scale needs center+scale factors; mirror needs center+plane ('xy'|'xz'|'yz').",
+        "CST has no Create on Transform: the block ends with .Transform(\"Shape\", ...)."
+      ],
+      "replaces_vba": "Transform.Transform",
+      "extension": false
+    },
+    {
+      "name": "cst_workspace_tool",
+      "category": "session",
+      "summary": "Report the workspace and evidence folders and what they contain.",
+      "params": {},
+      "required": [],
+      "json_schema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "returns": "folder paths and file counts",
+      "examples": [],
+      "notes": [],
+      "replaces_vba": "",
+      "extension": false
+    },
+    {
+      "name": "cst_write_summary_json_tool",
+      "category": "export",
+      "summary": "Write a single JSON file summarising solver, frequency range, S11 and efficiencies.",
+      "params": {
+        "out_path": "str",
+        "target_frequency": "float"
+      },
+      "required": [
+        "out_path"
+      ],
+      "json_schema": {
+        "type": "object",
+        "properties": {
+          "out_path": {
+            "type": "string"
+          },
+          "target_frequency": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "out_path"
+        ]
+      },
+      "returns": "",
+      "examples": [
+        {
+          "out_path": "C:\\CST_MCP_workspace\\evidence\\result_summary.json",
+          "target_frequency": 2.4
+        }
+      ],
+      "notes": [
+        "Intended as the hand-off artefact for another agent or for a report."
+      ],
+      "replaces_vba": "",
+      "extension": false
+    }
+  ],
+  "conventions": {
+    "naming": "cst_<verb>_<object>_tool",
+    "solid_names": "component:solid, e.g. 'antenna:patch'",
+    "units": "millimetres and GHz unless the project says otherwise",
+    "parameters": "change with cst_set_parameters_tool only",
+    "history_blocks": "never contain StoreParameter/StoreParameters/Rebuild",
+    "s_parameters": "dB = 20*log10(abs(S))",
+    "evidence": "read numbers from exported files, not from the screen"
+  },
+  "workflow": [
+    {
+      "step": 1,
+      "name": "environment",
+      "tools": [
+        "cst_health_check_tool",
+        "cst_detect_tool",
+        "cst_connect_tool"
+      ],
+      "goal": "know that CST and the Python libraries are usable"
+    },
+    {
+      "step": 2,
+      "name": "project",
+      "tools": [
+        "cst_new_project_tool",
+        "cst_open_project_tool",
+        "cst_save_project_tool",
+        "cst_project_info_tool"
+      ],
+      "goal": "have one saved project in the workspace"
+    },
+    {
+      "step": 3,
+      "name": "parameters",
+      "tools": [
+        "cst_get_parameters_tool",
+        "cst_set_parameters_tool"
+      ],
+      "goal": "know the parameter names and change values safely"
+    },
+    {
+      "step": 4,
+      "name": "model",
+      "tools": [
+        "cst_create_brick_tool",
+        "cst_create_cylinder_tool",
+        "cst_boolean_tool",
+        "cst_transform_tool",
+        "cst_assign_material_tool",
+        "cst_add_to_history_tool"
+      ],
+      "goal": "geometry and materials as named, replayable history blocks"
+    },
+    {
+      "step": 5,
+      "name": "ports",
+      "tools": [
+        "cst_add_waveguide_port_tool",
+        "cst_add_discrete_port_tool",
+        "cst_list_ports_tool"
+      ],
+      "goal": "a port whose mode propagates in the band and whose reference impedance is intended"
+    },
+    {
+      "step": 6,
+      "name": "solver",
+      "tools": [
+        "cst_set_solver_tool",
+        "cst_set_frequency_range_tool",
+        "cst_configure_fd_solver_tool",
+        "cst_configure_td_solver_tool",
+        "cst_configure_eigenmode_solver_tool",
+        "cst_get_solver_tool"
+      ],
+      "goal": "the right solver, the right band, the right accuracy"
+    },
+    {
+      "step": 7,
+      "name": "domain",
+      "tools": [
+        "cst_set_boundary_tool",
+        "cst_set_symmetry_tool",
+        "cst_set_background_tool",
+        "cst_set_mesh_tool",
+        "cst_generate_mesh_tool",
+        "cst_add_monitor_tool"
+      ],
+      "goal": "a meshable, radiating model with the monitors you will need"
+    },
+    {
+      "step": 8,
+      "name": "solve",
+      "tools": [
+        "cst_save_project_tool",
+        "cst_run_solver_tool",
+        "cst_messages_tool"
+      ],
+      "goal": "a completed solve, or a CST error message that says why not"
+    },
+    {
+      "step": 9,
+      "name": "verify",
+      "tools": [
+        "cst_list_results_tool",
+        "cst_read_result_tool",
+        "cst_read_reference_impedance_tool",
+        "cst_read_port_info_tool",
+        "cst_model_audit_tool"
+      ],
+      "goal": "prove the result is physically meaningful, not just present"
+    },
+    {
+      "step": 10,
+      "name": "evidence",
+      "tools": [
+        "cst_export_touchstone_tool",
+        "cst_export_ascii_tool",
+        "cst_save_project_tool"
+      ],
+      "goal": "files another tool or person can re-check"
+    },
+    {
+      "step": 11,
+      "name": "parameter study (optional)",
+      "tools": [
+        "cst_sweep_preview_tool",
+        "cst_sweep_run_tool"
+      ],
+      "goal": "one copied project per case with the swept parameters applied; preview first, and only then decide whether to solve"
+    },
+    {
+      "step": 12,
+      "name": "release",
+      "tools": [
+        "cst_quit_tool"
+      ],
+      "goal": "close every project and release the Design Environment, so the next job starts with full memory"
+    }
+  ],
+  "configuration": {
+    "env_file": ".env next to mcp_server.py",
+    "keys": [
+      "CST_INSTALL_ROOT",
+      "CST_DESIGN_ENVIRONMENT_EXE",
+      "CST_MCP_WORKSPACE",
+      "CST_MCP_EVIDENCE"
+    ],
+    "resolved_at": "run time, from .env"
+  },
+  "extensions": {
+    "how_to_add_a_tool": [
+      "Create cst_mcp/tools/<your_module>.py",
+      "Define register_tools(registry) and call registry.tool(...) or registry.add(...)",
+      "Restart the MCP server: the module is discovered automatically"
+    ],
+    "hook": "register_tools(registry)",
+    "discovered": {
+      "package": "cst_mcp.tools",
+      "loaded": [
+        {
+          "module": "cst_mcp.tools.geometry_tools",
+          "tools_added": 14
+        },
+        {
+          "module": "cst_mcp.tools.material_port_tools",
+          "tools_added": 6
+        },
+        {
+          "module": "cst_mcp.tools.parameter_tools",
+          "tools_added": 4
+        },
+        {
+          "module": "cst_mcp.tools.result_tools",
+          "tools_added": 10
+        },
+        {
+          "module": "cst_mcp.tools.runtime_tools",
+          "tools_added": 16
+        },
+        {
+          "module": "cst_mcp.tools.session_tools",
+          "tools_added": 14
+        },
+        {
+          "module": "cst_mcp.tools.simulation_tools",
+          "tools_added": 15
+        },
+        {
+          "module": "cst_mcp.tools.sweep_tools",
+          "tools_added": 2
+        }
+      ],
+      "failed": []
+    }
+  }
+}

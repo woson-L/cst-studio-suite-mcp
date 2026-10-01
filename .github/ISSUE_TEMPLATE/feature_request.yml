@@ -1,0 +1,42 @@
+name: Feature request
+description: A capability the server should expose, or a tool that should exist
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before filing: check [`docs/use/cst-2026-limits.md`](../blob/main/docs/use/cst-2026-limits.md)
+        — some capabilities genuinely do not exist in CST's automation API, and that
+        document lists what was already tried.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: What are you trying to accomplish, and what stops you today?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What you would like
+      description: A tool name and its arguments if you have one in mind.
+    validations:
+      required: false
+
+  - type: textarea
+    id: workaround
+    attributes:
+      label: What you do instead right now
+      description: For example, a VBA block through `cst_run_vba_tool`, or a manual step in the CST GUI.
+    validations:
+      required: false
+
+  - type: input
+    id: cst-version
+    attributes:
+      label: CST Studio Suite version
+      placeholder: "2026.2"
+    validations:
+      required: true

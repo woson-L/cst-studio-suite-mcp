@@ -1,0 +1,11 @@
+{
+  "name": "cst-studio-suite-mcp",
+  "dir_name": "cst-studio-suite-mcp",
+  "category": "electromagnetic-simulation",
+  "status": "local",
+  "source": "local",
+  "source_url": "",
+  "license": "NOASSERTION",
+  "distribution": "internal",
+  "description": "How to drive the CST Studio Suite 2026 MCP server: the tool catalogue, the call order, the parameters that matter, and the guard rails that keep results trustworthy."
+}

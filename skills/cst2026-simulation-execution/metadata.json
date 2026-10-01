@@ -1,0 +1,11 @@
+{
+  "name": "cst2026-simulation-execution",
+  "dir_name": "cst2026-simulation-execution",
+  "category": "electromagnetic-simulation",
+  "status": "local",
+  "source": "local",
+  "source_url": "",
+  "license": "NOASSERTION",
+  "distribution": "internal",
+  "description": "Execution-layer skill for CST Studio Suite 2026 through the MCP: verified enum values and command strings, the port defects that silently produce meaningless S-parameters, mesh sizing for small features, and the four checks that prove a result is physically meaningful."
+}

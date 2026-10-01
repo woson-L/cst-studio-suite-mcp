@@ -1,0 +1,67 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  offline-checks:
+    # The offline suites need no CST installation, which is the point: they run
+    # anywhere. The live runners (tests/verify_*.py) need a licensed CST Studio
+    # Suite and are therefore run by hand, not here.
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install "mcp>=1.10" "pydantic>=2.0"
+
+      - name: Import check
+        run: python -c "import mcp_server; print('tools:', len(mcp_server.registry))"
+
+      - name: Registry and manifest
+        run: python tests/smoke_registry.py
+
+      - name: MCP protocol compliance
+        run: python tests/check_mcp_compliance.py
+
+      - name: Self-description consistency
+        run: python tests/check_self_description.py
+
+      - name: Skill tool references
+        run: python tests/check_skill_tool_refs.py
+
+      - name: Skill layout
+        run: python tests/check_skill_layout.py
+
+      - name: Documentation consistency
+        run: python tests/check_docs_consistency.py
+
+      - name: Regression suites
+        run: |
+          python tests/test_audit_regressions.py
+          python tests/test_port_info_verdict.py
+          python tests/test_save_overwrite.py
+
+      - name: Installation check (offline half)
+        run: python check_install.py --quick
+
+      - name: Manifest is up to date
+        run: |
+          git diff --exit-code -- docs/mcp_tools.json

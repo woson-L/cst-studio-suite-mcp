@@ -1,0 +1,3 @@
+display_name: CST Studio Suite MCP
+short_description: Drive CST Studio Suite 2026 through the CST MCP server with the correct call order and guard rails.
+default_prompt: Use the cst-studio-suite-mcp skill to operate CST Studio Suite 2026 through the CST MCP. Follow the documented call order, use cst_set_parameters_tool for every parameter change, verify the port after every solve, and quote numbers from exported files rather than the screen.

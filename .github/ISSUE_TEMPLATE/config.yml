@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security report
+    url: https://github.com/woson-L/cst-studio-suite-mcp/security/advisories/new
+    about: Report a vulnerability privately instead of opening an issue.
+  - name: Installation help
+    url: https://github.com/woson-L/cst-studio-suite-mcp/blob/main/docs/start/install.md
+    about: Installation prerequisites, .env configuration and the acceptance check.
+  - name: What CST 2026.2 does not expose
+    url: https://github.com/woson-L/cst-studio-suite-mcp/blob/main/docs/use/cst-2026-limits.md
+    about: Capabilities that were tested and are genuinely missing from CST's automation API.

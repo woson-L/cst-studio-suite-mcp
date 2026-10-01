@@ -1,0 +1,85 @@
+name: Bug report
+description: A tool returned the wrong thing, or a documented behaviour does not happen
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. This project drives a commercial simulator through its
+        automation API, so the exact message CST produced is the most useful thing you
+        can give us. Do not paste licence keys or anything you are not allowed to share.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you did, and what came back.
+      placeholder: |
+        I called cst_export_touchstone_tool with {"filename": "...", "impedance": 50}
+        and the tool returned ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+      description: If a document says it should behave differently, link that document.
+    validations:
+      required: true
+
+  - type: textarea
+    id: cst-message
+    attributes:
+      label: Exact CST message
+      description: Paste the raw text, including any error code. `cst_messages_tool` reads the CST message window.
+      render: text
+    validations:
+      required: false
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: How to reproduce
+      description: The smallest sequence of tool calls that shows the problem. If you can attach a .cst project, say so here.
+      render: text
+    validations:
+      required: true
+
+  - type: input
+    id: cst-version
+    attributes:
+      label: CST Studio Suite version
+      description: The exact build, from Help → About in the Design Environment.
+      placeholder: "2026.2"
+    validations:
+      required: true
+
+  - type: input
+    id: python-version
+    attributes:
+      label: Python version
+      description: Output of `python --version`.
+      placeholder: "3.11.9"
+    validations:
+      required: true
+
+  - type: input
+    id: commit
+    attributes:
+      label: Version or commit
+      description: Release tag, or the commit you are running. `git rev-parse --short HEAD`.
+    validations:
+      required: false
+
+  - type: dropdown
+    id: checks
+    attributes:
+      label: Did the offline checks pass on your machine?
+      description: Output of `python check_install.py --quick`.
+      options:
+        - "Yes — 0 warnings, 0 failures"
+        - "No — there were warnings or failures"
+        - "I have not run them"
+    validations:
+      required: true

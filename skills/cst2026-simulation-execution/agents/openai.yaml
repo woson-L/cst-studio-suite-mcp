@@ -1,0 +1,3 @@
+display_name: CST 2026 Simulation Execution
+short_description: Execute a CST 2026 job at the command level — solver, band, ports, mesh, solve, and proof that the result is real.
+default_prompt: Use the cst2026-simulation-execution skill when you must actually run a CST Studio Suite 2026 simulation. Choose and configure the solver, set the frequency range before solving, place a port whose mode propagates in the band, size the mesh for the smallest feature, then verify the reference impedance and the port cutoff before reporting any S-parameter.

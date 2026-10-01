@@ -1,0 +1,24 @@
+# Normalise line endings in the repository; keep Windows batch files CRLF.
+* text=auto eol=lf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Binary artefacts: never diff or merge them.
+*.s1p binary
+*.s2p binary
+*.s3p binary
+*.s4p binary
+*.dib binary
+*.parmap binary
+*.png binary
+*.jpg binary
+*.pdf binary
+
+# Generated and machine-specific files.
+docs/mcp_tools.json linguist-generated=true
+tests/evidence/*.jsonl linguist-generated=true
+
+# Keep language statistics honest: the skills and docs are the product here.
+skills/** linguist-documentation=true
+docs/** linguist-documentation=true

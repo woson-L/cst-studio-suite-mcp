@@ -1,0 +1,38 @@
+# ---- secrets and machine-specific configuration ----
+# .env holds real install paths and must never be committed.
+# Use .env.example as the template.
+.env
+.env.local
+.env.*.local
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+build/
+dist/
+
+# ---- editors and OS ----
+.vscode/
+.idea/
+*.tmp
+*.bak
+*~
+Thumbs.db
+desktop.ini
+
+# ---- runtime output ----
+cst_workspace/
+*.log
+
+# ---- generated during a test run ----
+# tests/check_mcp_compliance.py rewrites this; the curated copy that ships is
+# tests/evidence/mcp_compliance.json.
+tests/mcp_compliance.json
+# Per-run evidence trails. Re-running the runner regenerates them; the curated
+# records in tests/evidence/ are what is committed.
+tests/evidence/*.jsonl
+tests/evidence/*.s1p
+tests/evidence/*.s2p

@@ -1,0 +1,74 @@
+{
+  "initialize_handshake": {
+    "ok": true,
+    "detail": "server=cst-studio-suite-mcp version=1.28.1"
+  },
+  "server_name_reported": {
+    "ok": true,
+    "detail": "cst-studio-suite-mcp"
+  },
+  "protocol_version": {
+    "ok": true,
+    "detail": "2025-11-25"
+  },
+  "instructions_advertised": {
+    "ok": true,
+    "detail": "You are controlling CST Studio Suite 2026 through MCP.  How to work ----------- 1. cst_health_check_tool first"
+  },
+  "tools_listed": {
+    "ok": true,
+    "detail": "82 tools"
+  },
+  "tool_names_unique": {
+    "ok": true,
+    "detail": "duplicates: []"
+  },
+  "all_tools_have_description": {
+    "ok": true,
+    "detail": "missing: []"
+  },
+  "tool_naming_convention": {
+    "ok": true,
+    "detail": "off-pattern: []"
+  },
+  "input_schemas_object_rooted": {
+    "ok": true,
+    "detail": ""
+  },
+  "no_whitespace_in_names": {
+    "ok": true,
+    "detail": "clean"
+  },
+  "tools_call_returns_json": {
+    "ok": true,
+    "detail": "{   \"ok\": true,   \"count\": 82,   \"categories\": {     \"export\": 3,     \"geometry\": 14,     "
+  },
+  "structured_content_present": {
+    "ok": true,
+    "detail": "structuredContent returned"
+  },
+  "unknown_tool_is_error": {
+    "ok": true,
+    "detail": "Unknown tool: cst_does_not_exist_tool"
+  },
+  "invalid_args_rejected": {
+    "ok": true,
+    "detail": "Error executing tool cst_create_brick_tool: 5 validation errors for create_brickArguments component   Input sh"
+  },
+  "tool_error_is_mcp_error": {
+    "ok": true,
+    "detail": "Error executing tool cst_add_to_history_tool: history block 'guard' contains 'storeparameter'. CST 2026 refuses this ('Prevented a"
+  },
+  "manifest_tool_works": {
+    "ok": true,
+    "detail": "{\n  \"name\": \"cst-studio-suite-mcp\",\n  \"version\": \"2.0.0\",\n  \"target_software\": \"CST Studio"
+  },
+  "runtime_bridge_works": {
+    "ok": true,
+    "detail": "{   \"ok\": true,   \"count\": 15,   \"tools\": [     {       \"name\": \"change-parameter\",       "
+  },
+  "_summary": {
+    "passed": 17,
+    "total": 17
+  }
+}

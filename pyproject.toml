@@ -1,0 +1,68 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cst-studio-suite-mcp"
+version = "2.0.0"
+description = "MCP server for CST Studio Suite 2026 - modelling, solver setup, results and verification"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "woson-L" }]
+keywords = ["cst", "cst-studio-suite", "mcp", "electromagnetics", "simulation", "antenna", "cae"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering",
+]
+dependencies = [
+    "mcp>=1.10",
+    "pydantic>=2.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/woson-L/cst-studio-suite-mcp"
+Repository = "https://github.com/woson-L/cst-studio-suite-mcp"
+Issues = "https://github.com/woson-L/cst-studio-suite-mcp/issues"
+Changelog = "https://github.com/woson-L/cst-studio-suite-mcp/blob/main/CHANGELOG.md"
+Documentation = "https://github.com/woson-L/cst-studio-suite-mcp/tree/main/docs"
+
+[project.optional-dependencies]
+plotting = ["matplotlib>=3.7", "numpy>=1.24"]
+reports = ["python-docx>=1.1"]
+
+[project.scripts]
+cst-studio-suite-mcp = "mcp_server:main"
+
+# Only modules that actually exist here. An earlier revision of this file listed
+# cst_automation / cst_parameter_sweep / cst_schematic / cst_runtime_cli_bridge /
+# cst_typed_wrapper_generator, which belong to the previous package and are not
+# present. setuptools fails the whole build on a missing py-module:
+#   "file cst_automation.py (for module cst_automation) not found"
+#   -> Preparing metadata (pyproject.toml) did not run successfully
+#   -> pip install . exits 1
+# Keep this list in step with the top-level .py files.
+#
+# cst_automation / cst_schematic / cst_parameter_sweep are the parameter-sweep
+# family. cst_mcp/tools/sweep_tools.py registers the two sweep tools and IS
+# auto-discovered from the cst_mcp.tools package, but these three top-level helpers
+# are not - a module absent from this list still runs from the source folder yet
+# disappears from an installed wheel. check_install.py enforces the agreement.
+[tool.setuptools]
+py-modules = [
+    "mcp_server",
+    "cst_automation",
+    "cst_schematic",
+    "cst_parameter_sweep",
+]
+license-files = ["LICENSE"]
+
+[tool.setuptools.packages.find]
+include = ["cst_mcp*"]

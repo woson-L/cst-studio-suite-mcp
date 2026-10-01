@@ -1,0 +1,144 @@
+{
+  "target_frequency": 2.4,
+  "s11": {
+    "ok": true,
+    "tree_path": "1D Results\\S-Parameters\\S1,1",
+    "target_frequency": 2.4,
+    "s11_db_at_target": -4.32,
+    "sample_frequency": 2.4000000000000004,
+    "best_s11_db": -15.392,
+    "best_frequency": 2.5595000000000003,
+    "meets_minus10dB": false,
+    "n_points": 1001
+  },
+  "reference_impedance": {
+    "ok": true,
+    "value_at_first": "(50+0j)",
+    "value_at_last": "(50+0j)",
+    "length": 1001
+  },
+  "port_info": {
+    "ok": true,
+    "cutoff_frequency": null,
+    "missing": [
+      {
+        "item": "cutoff_frequency",
+        "error": "tree path not found: '1D Results\\Port Information\\Cutoff Frequency\\1(1)'."
+      },
+      {
+        "item": "wave_impedance",
+        "error": "tree path not found: '1D Results\\Port Information\\Wave Impedance\\1(1)'."
+      },
+      {
+        "item": "effective_dielectric_constant",
+        "error": "tree path not found: '1D Results\\Port Information\\Effective Dielectric Constant\\1(1)'."
+      }
+    ],
+    "wave_impedance": null,
+    "effective_dielectric_constant": null,
+    "verdict": "no port mode information (is this a discrete port? then ZRef is authoritative)",
+    "reference_frequency": 2.2,
+    "reference_source": "solver lower band edge (Solver.GetFmin)",
+    "solver_band": [
+      2.2,
+      2.7
+    ]
+  },
+  "energy": {
+    "ok": true,
+    "frequency": 2.4,
+    "total_efficiency": 0.2842691862788821,
+    "total_efficiency_percent": 28.43,
+    "total_efficiency_db": -5.46,
+    "radiation_efficiency": 0.45110887856674614,
+    "radiation_efficiency_percent": 45.11,
+    "radiation_efficiency_db": -3.46,
+    "power_radiated": 0.14213459313944105,
+    "power_accepted": 0.31507824361832093,
+    "power_stimulated": 0.5,
+    "loss_dielectrics": 0.17292129780472237,
+    "loss_metals": null
+  },
+  "model": {
+    "ok": true,
+    "shape_count": 4,
+    "shapes": [
+      {
+        "name": "board:substrate",
+        "material": "MCP_FR4",
+        "volume": 4800.0,
+        "bbox": {
+          "x": [
+            -30.0,
+            30.0
+          ],
+          "y": [
+            -25.0,
+            25.0
+          ],
+          "z": [
+            -1.6,
+            0.0
+          ]
+        }
+      },
+      {
+        "name": "board:ground",
+        "material": "PEC",
+        "volume": 105.0,
+        "bbox": {
+          "x": [
+            -30.0,
+            30.0
+          ],
+          "y": [
+            -25.0,
+            25.0
+          ],
+          "z": [
+            -1.635,
+            -1.6
+          ]
+        }
+      },
+      {
+        "name": "antenna:patch",
+        "material": "PEC",
+        "volume": 34.00488,
+        "bbox": {
+          "x": [
+            -13.5,
+            13.5
+          ],
+          "y": [
+            -18.792,
+            18.792
+          ],
+          "z": [
+            0.0,
+            0.035
+          ]
+        }
+      },
+      {
+        "name": "antenna:feed",
+        "material": "PEC",
+        "volume": 3.29175,
+        "bbox": {
+          "x": [
+            -30.0,
+            0.0
+          ],
+          "y": [
+            -1.5675,
+            1.5675
+          ],
+          "z": [
+            0.0,
+            0.035
+          ]
+        }
+      }
+    ]
+  }
+}
