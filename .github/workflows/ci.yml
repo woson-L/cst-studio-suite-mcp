@@ -21,9 +21,11 @@ jobs:
         python-version: ["3.10", "3.12"]
 
     steps:
-      - uses: actions/checkout@v4
+      # v7 of both actions runs on node24; v4 / v5 run on node20, which GitHub
+      # has deprecated and was warning about on every run.
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: ${{ matrix.python-version }}
 
