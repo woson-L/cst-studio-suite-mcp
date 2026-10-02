@@ -187,7 +187,7 @@ vulnerabilities privately — see [`SECURITY.md`](SECURITY.md).
 
 ## License
 
-[MIT](LICENSE) © 2026 woson-L.
+[MIT](LICENSE) © 2026 Thompson Labs.
 
 This project **does not distribute CST Studio Suite**, which is commercial software and
 must be obtained and licensed separately. It calls the automation API that CST ships.
