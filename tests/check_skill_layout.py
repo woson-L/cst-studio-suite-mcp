@@ -1,6 +1,6 @@
 """Gate: the skills in this package must follow the repository skill layout.
 
-Reference layout (matching a sibling CST skill package):
+Reference layout (matching `Skill/CST/` in Cai-aa/CAE-Agent-Hub):
 
     <skill-name>/
     ├─ SKILL.md              YAML front-matter with `name` and `description`

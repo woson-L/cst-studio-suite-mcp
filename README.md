@@ -17,6 +17,26 @@ New here? **[Install](docs/start/install.md)** → **[Quick start](docs/use/quic
 
 ---
 
+## Origin
+
+This server is a **refactor** of the CST MCP inside
+[`Cai-aa/CAE-Agent-Hub`](https://github.com/Cai-aa/CAE-Agent-Hub) (`MCP/CST/`). That
+project is MIT-licensed and its copyright notice is retained in [`LICENSE`](LICENSE).
+
+| | Upstream | Here |
+| --- | --- | --- |
+| Tools | 51, in one 623-line `mcp_server.py` | **84 across 14 categories**, in a `cst_mcp/` package |
+| Vendored runtime CLI | 824 files | none — a built-in command registry |
+| Offline checks, CI | none covering this component | 9 gates on every push, Python 3.10 and 3.12 |
+| Documentation, skills | one README; skills at the hub root | 17 documents, 2 bundled skills |
+
+Added here: guard rails that refuse a history block CST would hang on, mesh sizing derived
+from the smallest feature, project overwrite that does not strand a `Result/` directory,
+and a port verdict instead of raw numbers.
+**Full comparison: [Differences from upstream](docs/reference/differences-from-upstream.md).**
+
+---
+
 ## Why this exists
 
 A model with generic CST knowledge produces automation that *looks* right and fails in

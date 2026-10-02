@@ -73,11 +73,11 @@ If you cannot see these, the folder was not copied completely: **stop and tell t
 
 1c. Find two locations (needed for step 4):
 
-    a) **The repository's CST skill directory**. In a shared skills hub the CST skills live at
+    a) **The repository's CST skill directory**. In [Cai-aa/CAE-Agent-Hub](https://github.com/Cai-aa/CAE-Agent-Hub) the CST skills live at
        <skills-hub>\Skill\CST\, with an existing cst-simulation-workflow at the same level. Confirm the shape:
          Get-ChildItem "<skills-hub>\Skill\CST" -Recurse -File
        Each skill is one directory containing SKILL.md, metadata.json, agents\openai.yaml and
-       references\*.md. Note down <skills-hub>.
+       references\*.md. Note down the hub path.
 
     b) **The Harness's skills directory** (if it is not that hub). It varies by client; the common ones:
          DSH: <workspace or user directory>\.dsh\skills\
@@ -134,7 +134,7 @@ A skill is **one directory = one skill**; the directory must contain SKILL.md an
 metadata.json, agents\openai.yaml and a references\ subdirectory. **You must copy the whole directory**;
 do not copy only SKILL.md — references\ holds the detail files, and without it the skill points at thin air.
 
-In the shared skills hub, the CST skills live at:
+In CAE-Agent-Hub, the CST skills live at:
     <skills-hub>\Skill\CST\
 So the two skills in this package should go on that same level, side by side with the existing cst-simulation-workflow:
 

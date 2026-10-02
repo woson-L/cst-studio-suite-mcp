@@ -43,6 +43,7 @@ linked at the end of each one.
 
 | Document | Contents |
 | --- | --- |
+| [differences-from-upstream.md](reference/differences-from-upstream.md) | What this package changes relative to the upstream CST MCP |
 | [documentation-restructure-plan.md](reference/documentation-restructure-plan.md) | How this documentation structure was derived |
 | [skill-merge-evaluation.md](reference/skill-merge-evaluation.md) | Evaluation of merging two bundled skills (not executed) |
 
