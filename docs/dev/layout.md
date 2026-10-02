@@ -36,6 +36,9 @@ CST-MCP/
 │  ├─ extend/                    adding tools and tool families
 │  ├─ dev/                       layout, skills, verification
 │  └─ reference/                 design records and evaluations
+├─ test_demo/
+│  ├─ README.md                  what the demo project is for
+│  └─ test_demo.cst              self-contained demo project for install verification
 ├─ tests/
 │  ├─ smoke_registry.py          offline: registry + manifest
 │  ├─ check_mcp_compliance.py    offline: MCP protocol checks

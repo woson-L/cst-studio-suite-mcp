@@ -31,6 +31,9 @@ cst_workspace/
 # tests/check_mcp_compliance.py rewrites this; the curated copy that ships is
 # tests/evidence/mcp_compliance.json.
 tests/mcp_compliance.json
+# Opening the demo project in place makes CST create its companion directory
+# next to the .cst. The committed file is self-contained; the directory is local.
+test_demo/*/
 # Per-run evidence trails. Re-running the runner regenerates them; the curated
 # records in tests/evidence/ are what is committed.
 tests/evidence/*.jsonl

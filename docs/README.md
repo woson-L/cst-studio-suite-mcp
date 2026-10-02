@@ -11,6 +11,7 @@ linked at the end of each one.
 | --- | --- |
 | [install.md](start/install.md) | Step-by-step installation on a target machine |
 | [install-via-agent.md](start/install-via-agent.md) | Bootstrap prompt for handing the install to another AI |
+| [verify-with-demo.md](start/verify-with-demo.md) | Prove the install by driving CST through a bundled demo project |
 | [upgrade.md](start/upgrade.md) | Upgrading over an existing installation |
 
 ## use/ — using the server
@@ -60,11 +61,16 @@ they are project documentation:
 
 | File | Contents |
 | --- | --- |
-| [README.md](../README.md) | Project front page and documentation index |
+| [README.md](../README.md) | Project front page and documentation index (English) |
+| [README.zh-CN.md](../README.zh-CN.md) | The same front page in Chinese; the two link to each other at the top |
 | [AGENTS.md](../AGENTS.md) | Mandatory rules for changes made by an AI agent |
 | [CONTRIBUTING.md](../CONTRIBUTING.md) | What to run before opening a pull request |
 | [SECURITY.md](../SECURITY.md) | How to report a vulnerability, and what is in scope |
 | [CHANGELOG.md](../CHANGELOG.md) | Notable changes per version |
+
+The README pair is the **only** bilingual exception: `docs/` stays English-only. When the
+English README changes, change the Chinese one in the same commit — keep the section order
+and the link set identical, only the intra-page anchors differ.
 
 ---
 
@@ -84,6 +90,10 @@ they are project documentation:
 > **`skills/` is exempt from rule 1.** A skill's `SKILL.md` and `references/` must stay at
 > `skills/<name>/` because the skill discovery mechanism requires that location. Those files
 > are product content, not project documentation. See [dev/skills.md](dev/skills.md).
+>
+> **`test_demo/README.md` is exempt for the same reason.** It documents the fixture it sits
+> next to, not the project. Its user-facing page is
+> [start/verify-with-demo.md](start/verify-with-demo.md), which *is* indexed above.
 
 ---
 

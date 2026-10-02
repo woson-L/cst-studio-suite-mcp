@@ -2,6 +2,10 @@
 
 > Usage: copy the entire prompt from **Section 2** to the AI on the target computer (the local model inside the Harness).
 > It depends on no context on this machine; it is self-contained. Section 3 is the part you (the human) have to do, and Section 4 is troubleshooting.
+>
+> **After the install, prove it drives CST** rather than merely importing:
+> [Verify with the demo project](verify-with-demo.md) carries a ready-to-paste prompt and a
+> bundled `test_demo/test_demo.cst` for exactly that.
 
 ---
 
@@ -325,6 +329,7 @@ reference it currently needs. This matches how the other skills in the hub are l
 ## Related documents
 
 * [Install](install.md) — the human-facing installation walkthrough
+* [Verify with the demo project](verify-with-demo.md) — the end-to-end check to run after installing
 * [Upgrade](upgrade.md) — installing over an existing installation
 * [Layout](../dev/layout.md) — what every file in the package is for
 * [Skills](../dev/skills.md) — the two bundled agent skills

@@ -623,6 +623,7 @@ runner regenerates them.
 
 ## Related documents
 
+* [Verify with the demo project](verify-with-demo.md) — prove the install by driving CST, not just by importing it
 * [Install via another agent](install-via-agent.md) — hand the installation to an AI
 * [Upgrade](upgrade.md) — installing over an existing installation
 * [Quick start](../use/quickstart.md) — first run and first tool call

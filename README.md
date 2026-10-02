@@ -1,5 +1,7 @@
 # CST-MCP — CST Studio Suite 2026 through the Model Context Protocol
 
+[English](README.md) | [简体中文](README.zh-CN.md)
+
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](pyproject.toml)
 [![MCP](https://img.shields.io/badge/MCP-stdio-6E4AFF.svg)](https://modelcontextprotocol.io)
@@ -13,7 +15,8 @@ selection, frequency range, monitors, solver runs, result reading and evidence e
 
 **84 tools · 14 categories · stdio transport · no network access.**
 
-New here? **[Install](docs/start/install.md)** → **[Quick start](docs/use/quickstart.md)**.
+New here? **[Install](docs/start/install.md)** → **[Quick start](docs/use/quickstart.md)**
+→ **[Verify with the demo project](docs/start/verify-with-demo.md)**.
 
 ---
 
@@ -108,6 +111,41 @@ python check_install.py
 walkthrough — including what to do on a machine with no internet access — is in
 [Installation](docs/start/install.md).
 
+## Verify the installation
+
+`check_install.py` proves the server *loads*. To prove it can actually **drive CST** —
+open a project, build geometry, place a port, set the band, solve — hand the prompt below
+to your AI. It installs the MCP and the two skills, then runs a verification task against
+the demo project bundled in [`test_demo/`](test_demo).
+
+Fill in the two placeholders and copy the whole block.
+
+```text
+Install this cst-studio-suite-mcp into my local harness (<your harness: dsh, codex,
+WorkBuddy, ...>). The MCP path is: <the folder you installed it in>. Also install the two
+skills in the skills folder: `cst-studio-suite-mcp` and `cst2026-simulation-execution`.
+
+Then verify the installation through that MCP and those two skills. The verification task:
+
+1. Open the project at `<MCP folder>\test_demo\test_demo.cst`.
+2. Create a cube named box, 50 mm per side, material iron.
+3. Create a thin sheet 2 mm below the box, 5 mm thick, 50 mm x 50 mm, material PEC.
+4. Place an excitation port at the centre of that sheet: a discrete port connecting the
+   box and the sheet.
+5. Set the frequency range to 0-100 MHz.
+6. Solve for S-parameters.
+
+When the install and the verification are done, report the files used, the steps taken and
+the result.
+```
+
+A Chinese version of the same prompt is in [README.zh-CN.md](README.zh-CN.md).
+
+What a pass looks like — and the two traps worth knowing, namely that the reference
+impedance must read 50 Ω and that a 50 mm cube at 0–100 MHz is far below resonance so S11
+near 0 dB is the correct answer — is in
+**[Verify with the demo project](docs/start/verify-with-demo.md)**.
+
 ## What a session looks like
 
 A complete worked run against live CST: build a model, configure the solver, solve, read
@@ -139,6 +177,7 @@ Everything lives in [`docs/`](docs/), indexed in **[docs/README.md](docs/README.
 | I want to | Read |
 | --- | --- |
 | Install on this machine | [Installation](docs/start/install.md) |
+| **Prove it works end to end** | **[Verify with the demo project](docs/start/verify-with-demo.md)** |
 | Hand the install to another AI | [Install via another agent](docs/start/install-via-agent.md) |
 | Update an existing installation | [Upgrading](docs/start/upgrade.md) |
 | Start using the server | [Quick start](docs/use/quickstart.md) |

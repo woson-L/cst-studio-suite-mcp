@@ -6,6 +6,16 @@ Notable changes to `cst-studio-suite-mcp`. The format follows
 
 ## [Unreleased]
 
+### Added
+
+- **A way to prove the install actually drives CST.** `check_install.py` only shows that
+  the server loads. The repository now bundles `test_demo/test_demo.cst` — a 22 KB,
+  self-contained CST project — and a ready-to-paste prompt that installs the MCP plus the
+  two skills and then builds a model, places a port, sets the band and solves. See
+  [Verify with the demo project](docs/start/verify-with-demo.md).
+- **A Chinese README**, [`README.zh-CN.md`](README.zh-CN.md), with a language switcher at
+  the top of both versions. The two are kept in step: same section order, same link set.
+
 ### Fixed
 
 - **`pip install` produced a server that could not start.** `pyproject.toml` declared

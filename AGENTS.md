@@ -48,7 +48,10 @@ layout and tool references — run them after any structural change.
 
 ## 3. Documentation conventions
 
-* Write in English.
+* Write in English. The one exception is the README pair: [`README.md`](README.md) is the
+  English front page and [`README.zh-CN.md`](README.zh-CN.md) is its Chinese translation.
+  They change together, in the same commit, keeping the same section order and the same set
+  of links.
 * Keep each file short. If a file exceeds roughly 300 lines, split it.
 * The root [`README.md`](README.md) is the index. The grouped index is
   [`docs/README.md`](docs/README.md). Every new document must appear in the grouped index.
